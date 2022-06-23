@@ -37,31 +37,31 @@ search.addEventListener("focusout", function () {
     }
 })
 
-// function setOverview(card) {
-//     // const cardImgs = document.querySelectorAll(".cardImg");
-//     // const cardInfos = document.querySelectorAll(".cardInfo");
+function setOverview(card) {
+    // const cardImgs = document.querySelectorAll(".cardImg");
+    // const cardInfos = document.querySelectorAll(".cardInfo");
 
-//     card.addEventListener("mouseover", function () {
-//         card.children[0].style.opacity = "0.4";
-//         card.children[1].style.opacity = "0.4";
-//         card.children[2].style.opacity = "1";
-//         console.log(card.children[1].children[1].innerHTML);
-//     })
+    card.addEventListener("mouseover", function () {
+        card.children[0].style.opacity = "0.4";
+        card.children[1].style.opacity = "0.4";
+        card.children[2].style.opacity = "1";
+        console.log(card.children[1].children[1].innerHTML);
+    })
 
-//     card.addEventListener("mouseout", function () {
-//         card.style.opacity = "1";
-//         card.children[0].style.opacity = "1";
-//         card.children[1].style.opacity = "1";
-//         card.children[2].style.opacity = "0";
-//     })
-//     if (card.children[1].children[1].innerHTML >= 9)
-//         card.children[1].children[1].style.color = "greenyellow";
-//     else if (card.children[1].children[1].innerHTML < 9 && card.children[1].children[1].innerHTML >= 7)
-//         card.children[1].children[1].style.color = "orange";
-//     else
-//         card.children[1].children[1].style.color = "red";
+    card.addEventListener("mouseout", function () {
+        card.style.opacity = "1";
+        card.children[0].style.opacity = "1";
+        card.children[1].style.opacity = "1";
+        card.children[2].style.opacity = "0";
+    })
+    // if (card.children[1].children[1].innerHTML >= 9)
+    //     card.children[1].children[1].style.color = "greenyellow";
+    // else if (card.children[1].children[1].innerHTML < 9 && card.children[1].children[1].innerHTML >= 7)
+    //     card.children[1].children[1].style.color = "orange";
+    // else
+    //     card.children[1].children[1].style.color = "red";
 
-// }
+}
 
 const base_url = "https://api.themoviedb.org/3";
 const popular = "/discover/movie?sort_by=popularity.desc";
@@ -79,9 +79,9 @@ function loadMovies(url) {
 loadMovies(url);
 
 function getColor(rating) {
-    if (rating >= 9)
+    if (rating >= 8)
         return "greenyellow";
-    else if (rating < 9 && rating >= 7)
+    else if (rating < 8 && rating >= 5)
         return "orange";
     else
         return "red";
@@ -97,7 +97,7 @@ function appendCard(movie) {
     else
         poster_path = image_path + poster_path;
 
-    if (!adult && parseInt(release_date.split("-")[0]) >= 2020 && vote_average >= 5) {
+    if (!adult && parseInt(release_date.split("-")[0]) >= 2020 && vote_average >= 3) {
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML =
@@ -113,6 +113,7 @@ function appendCard(movie) {
                 <div class="overview">${overview}</div>
             </div>`
         movies.appendChild(card);
+        setOverview(card);
     }
 }
 
