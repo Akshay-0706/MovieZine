@@ -145,8 +145,8 @@ window.addEventListener("scroll", () => {
         navBar.children[1].style.display = "unset";
 
     }
-    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1000) {
-        for (let i = 0; i < 1000; i++) {
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3000) {
+        for (let i = 0; i < 10; i++) {
             const randomId = Math.random() * 949999 + 50000;
             const randomUrl = base_url + "/movie/" + randomId + "?api_key=" + api_key + "&language=en-US";
             getMovie(randomUrl)
@@ -173,7 +173,6 @@ input.addEventListener("input", () => {
         loadMovies(url);
     }
     else {
-
         query = query.replaceAll(" ", "+");
         console.log(query);
 
