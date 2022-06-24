@@ -3,15 +3,12 @@ const navBar = document.querySelector(".navBar");
 const input = document.querySelector("#searchInput");
 const inputDiv = document.querySelector("#searchInputDiv");
 const movies = document.querySelector(".movies");
-const card = document.querySelector(".card");
 const moviz = document.querySelector("#moviz");
 let pages = 1;
 
 moviz.addEventListener("click", () => {
     window.location.href = 'https://akshay-0706.github.io/Moviz/';
 })
-
-
 
 // navBar.addEventListener("click", function (e) {
 //     e.stopPropagation();
@@ -58,10 +55,6 @@ function setOverview(card) {
         card.children[1].style.opacity = "1";
         card.children[2].style.opacity = "0";
     })
-
-    card.addEventListener("click", () => {
-        alert("clicked");
-    })
     // if (card.children[1].children[1].innerHTML >= 9)
     //     card.children[1].children[1].style.color = "greenyellow";
     // else if (card.children[1].children[1].innerHTML < 9 && card.children[1].children[1].innerHTML >= 7)
@@ -71,11 +64,15 @@ function setOverview(card) {
 
 }
 
+let todaysDate = new Date();
+todaysDate.toISOString().split('T')[0];
+let todaysDateAfterOneYear = parseInt(todaysDate.toISOString().split('T')[0].split("-")[0]) + 1 + "-" + todaysDate.toISOString().split('T')[0].split("-")[1] + "-" + todaysDate.toISOString().split('T')[0].split("-")[2];
+
 const base_url = "https://api.themoviedb.org/3";
-const popular = "/movie/popular?sort_by=popularity.desc&language=en-US&page=";
+const upcoming = `/discover/movie?language=en-US&sort_by=popularity.desc&primary_release_date.gte=${todaysDate.toISOString().split('T')[0]}&primary_release_date.lte=${todaysDateAfterOneYear}&page=`;
 const api_key = "ccc26339ecf7fc6dfb4177f12b602ced";
 const image_path = "https://image.tmdb.org/t/p/w500";
-const url = base_url + popular + pages + "&api_key=" + api_key;
+const url = base_url + upcoming + pages + "&api_key=" + api_key;
 
 function loadMovies(url) {
     axios.get(url)
@@ -95,6 +92,8 @@ function getColor(rating) {
         return "red";
 }
 
+
+
 function appendCard(movie) {
 
     let { title, poster_path, vote_average, overview, adult, release_date } = movie;
@@ -105,7 +104,7 @@ function appendCard(movie) {
     else
         poster_path = image_path + poster_path;
 
-    if (!adult && parseInt(release_date.split("-")[0]) >= 2020 && vote_average >= 3) {
+    if (!adult && parseInt(release_date.split("-")[0]) >= 2020) {
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML =
@@ -114,7 +113,7 @@ function appendCard(movie) {
                 alt="Poster not found!">
             <div class="cardInfo" >
                 <div class="cardTitle">${title} (${release_date.split("-")[0]})</div>
-                <span class="cardRating ${getColor(vote_average)}">${vote_average}</span>
+                <span class="cardRating greenyellow">${getMonth(parseInt(release_date.split("-")[1]))}</span>
             </div >
             <div class="cardOverview">
                 <div>Overview</div>
@@ -157,7 +156,7 @@ window.addEventListener("scroll", () => {
         // for (let i = 0; i < 10; i++) {
         const randomId = Math.random() * 949999 + 50000;
         pages += 1;
-        let randomUrl = base_url + popular + pages + "&api_key=" + api_key;
+        let randomUrl = base_url + upcoming + pages + "&api_key=" + api_key;
         loadMovies(randomUrl);
         // }
     }
@@ -183,16 +182,15 @@ input.addEventListener("input", () => {
     }
     else {
         query = query.replaceAll(" ", "+");
-        console.log(query);
 
         const queryUrl = base_url + "/search/movie?api_key=" + api_key + "&query=" + query + "&sort_by=popularity.desc";
         loadMovies(queryUrl);
     }
 })
 
-const latest = document.querySelector(".upcoming");
-latest.addEventListener("click", () => {
-    window.location.href = 'upcoming.html';
+const home = document.querySelector(".home");
+home.addEventListener("click", () => {
+    window.location.href = 'index.html';
 })
 
 // Work in progress
@@ -201,4 +199,48 @@ for (const links of inactive) {
     links.addEventListener("click", () => {
         alert("This feature will be available soon!");
     })
+}
+
+function getMonth(month) {
+    switch (month) {
+        case 1:
+            return "Jan"
+            break;
+        case 2:
+            return "Feb"
+            break;
+        case 3:
+            return "March"
+            break;
+        case 4:
+            return "April"
+            break;
+        case 5:
+            return "May"
+            break;
+        case 6:
+            return "Jun"
+            break;
+        case 7:
+            return "July"
+            break;
+        case 8:
+            return "Aug"
+            break;
+        case 9:
+            return "Sep"
+            break;
+        case 10:
+            return "Oct"
+            break;
+        case 11:
+            return "Nov"
+            break;
+        case 12:
+            return "Dec"
+            break;
+
+        default:
+            break;
+    }
 }
