@@ -73,7 +73,7 @@ nav h2 #moviz:hover {
 
 .navItem {
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 10px;
     transition: color 0.5s;
     cursor: pointer;
     text-align: center;
@@ -126,7 +126,7 @@ nav h2 #moviz:hover {
 
 .intro {
     width: 100%;
-    height: 400px;
+    height: 370px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://s3-us-west-2.amazonaws.com/prd-rteditorial/wp-content/uploads/2018/03/13153742/RT_300EssentialMovies_700X250.jpg");
     text-align: center;
     color: white;
@@ -135,7 +135,7 @@ nav h2 #moviz:hover {
     align-items: center;
     font-size: 4em;
     text-transform: uppercase;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .intro div {
@@ -241,7 +241,153 @@ nav h2 #moviz:hover {
     color: greenyellow;
 }
 
-@media (max-width: 900px) {
+.ecardOuter {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expandedCard {
+    width: 100%;
+    background-image: linear-gradient(to right, rgb(26, 34, 65), rgb(4, 8, 22));
+    margin: 0 60px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+    overflow: hidden;
+    box-shadow: 10px 10px 20px #070c1b;
+}
+
+#ecard {
+    display: flex;
+    color: white;
+}
+
+#ecardInfo {
+    width: 100%;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    transition: 0.5s;
+}
+
+#ecardTagline {
+    font-size: 20px;
+    margin: 0 20px 20px;
+}
+
+#ecardInfo div:nth-of-type(3) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#ecardTitle {
+    font-size: 40px;
+    margin: 0 20px 20px;
+}
+
+#ecardClose {
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+#ecardImg {
+    width: 300px;
+    height: 450px;
+    transition: 0.5s;
+    margin-top: -60px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(16, 23, 46);
+}
+
+#ecardRatingNTime {
+    width: 180px;
+    font-size: 20px;
+    background-color: #030714;
+    padding: 0.5rem 0.5rem;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#ecardGenres {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#ecardGenres li {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 0 10px 20px;
+}
+
+#ecardGenres li:hover {
+    border: 1px solid rgb(104, 104, 104);
+    cursor: pointer;
+    color: rgb(214, 214, 214);
+}
+
+#ecardOverview {
+    font-size: 20px;
+    margin: 20px 20px 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 5.2em;
+    line-height: 1.3em;
+}
+
+#ecardWatch {
+    color: white;
+    font-size: 35px;
+    margin: 20px 20px 20px;
+}
+
+.ecardVideo {
+    width: 400px;
+    height: 225px;
+    border-radius: 20px;
+    margin: 0 20px;
+}
+
+.ecardVideosList {
+    margin-bottom: 20px;
+}
+
+.blurred {
+    filter: blur(8px);
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1000px) {
 
     #search:hover {
         background-color: white;
@@ -275,9 +421,6 @@ nav h2 #moviz:hover {
         margin-bottom: 10px;
         font-size: 3em;
     }
-}
-
-@media (max-width: 900px) {
 
     .card {
         width: 300px;
@@ -289,7 +432,138 @@ nav h2 #moviz:hover {
         transition: 0.5s;
     }
 
+
+    
+
+    .expandedCard {
+        width: 100%;
+        margin: 0 40px;
+    }
+
+    #ecardTagline {
+        font-size: 15px;
+        margin: 0 20px 20px;
+    }
+
+    #ecardTitle {
+        font-size: 25px;
+        margin: 0 20px 20px;
+    }
+
+    #ecardClose {
+        width: 20px;
+        height: 20px;
+        margin: 20px;
+    }
+
+    #ecardImg {
+        width: 280px;
+        height: 400px;
+        margin-top: -60px;
+    }
+
+    #ecardRatingNTime {
+        width: 150px;
+        font-size: 15px;
+    }
+
+    #ecardGenres li {
+        font-size: 12px;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 0 5px 15px;
+    }
+
+    #ecardOverview {
+        font-size: 15px;
+        margin: 0 20px 20px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
+
+    #ecardWatch {
+        font-size: 20px;
+        margin: 20px 20px 20px;
+    }
+
+    .ecardVideo {
+        width: 300px;
+        height: 168.75px;
+    }
 }
+
+@media (max-width: 650px) {
+
+    .expandedCard {
+        width: 100%;
+        margin: 0 20px;
+    }
+
+    #ecard {
+        align-items: center;
+    }
+
+    #ecardTagline {
+        font-size: 15px;
+        margin: 0 20px 20px;
+    }
+
+    #ecardTitle {
+        font-size: 20px;
+        margin: 0 20px 20px;
+        margin-top: -40px;
+        margin-right: 60px;
+    }
+
+    #ecardClose {
+        width: 15px;
+        height: 15px;
+        margin: 20px;
+    }
+
+    #ecardImg {
+        width: 160px;
+        height: 200px;
+        align-self: flex-start;
+    }
+
+    #ecardRatingNTime {
+        width: 150px;
+        font-size: 14px;
+    }
+
+    #ecardGenres li {
+        font-size: 12px;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 0 5px 10px;
+    }
+
+    #ecardOverview {
+        font-size: 14px;
+        margin: 0 20px 20px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
+
+    #ecardWatch {
+        font-size: 18px;
+        margin: 20px 20px 20px;
+    }
+
+    .ecardVideo {
+        width: 280px;
+        height: 157.5px;
+    }
+}
+
+
+
+
 
 @media (max-width: 480px) {
 
@@ -303,6 +577,7 @@ nav h2 #moviz:hover {
     }
 
     .intro {
+        height: 250px;
         margin-bottom: 10px;
         font-size: 2em;
     }
@@ -345,6 +620,82 @@ nav h2 #moviz:hover {
         /* number of lines to show */
         line-clamp: 4;
         -webkit-box-orient: vertical;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .expandedCard {
+        width: 100%;
+        margin: 0 20px;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(4, 8, 22, 0.8)), url("https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg");
+        background-size: cover;
+    }
+
+    #ecard {
+        align-items: center;
+    }
+
+    #ecardTagline {
+        font-size: 15px;
+        margin: 0 20px 20px;
+    }
+
+    #ecardTitle {
+        font-size: 20px;
+        margin: 0 20px 20px;
+        margin-top: -40px;
+        margin-right: 60px;
+    }
+
+    #ecardClose {
+        width: 15px;
+        height: 15px;
+        margin: 20px;
+    }
+
+    #ecardImg {
+        display: none;
+    }
+
+    #ecardRatingNTime {
+        width: 170px;
+        font-size: 14px;
+    }
+
+    #ecardGenres li {
+        font-size: 12px;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 0 5px 10px;
+    }
+
+    #ecardOverview {
+        font-size: 14px;
+        margin: 0 20px 20px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
+
+    #ecardWatch {
+        font-size: 18px;
+        margin: 20px 20px 20px;
+    }
+
+    .ecardVideo {
+        width: 280px;
+        height: 157.5px;
     }
 
 }
