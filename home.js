@@ -350,7 +350,7 @@ nxtButton.addEventListener("click", function () {
 
 const hours = new Date().getHours();
 const isGreen = hours >= 0 && hours < 8;
-const isPurple = hours >= 15 && hours < 24;
+const isPurple = hours >= 16 && hours < 24;
 
 if (isGreen) {
     document.body.classList.toggle("themeGreen");
