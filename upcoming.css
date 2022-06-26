@@ -4,9 +4,39 @@
     padding: 0;
 }
 
+:root {
+    --bodyBG: linear-gradient(to right, #1e2336, #040816);
+    --white: white;
+    --card: #101a38;
+    --cardShadow: rgba(2, 7, 22, 0.253);
+    --ecard: linear-gradient(to right, rgb(26, 34, 65), rgb(4, 8, 22));
+    --ecardShadow: #070c1b;
+    --ecardImgShadow: rgb(16, 23, 46);
+}
+
+.themeGreen {
+    --bodyBG: linear-gradient(to right, #0b351b, #04160b);
+    --white: white;
+    --card: #193d1e;
+    --cardShadow: rgba(2, 22, 5, 0.253);
+    --ecard: linear-gradient(to right, rgb(26, 65, 29), rgb(5, 22, 4));
+    --ecardShadow: #091b07;
+    --ecardImgShadow: rgb(16, 46, 20);
+}
+
+.themePurple {
+    --bodyBG: linear-gradient(to right, #280b35, #110416);
+    --white: white;
+    --card: #33193d;
+    --cardShadow: rgba(16, 2, 22, 0.253);
+    --ecard: linear-gradient(to right, rgb(51, 26, 65), rgb(15, 4, 22));
+    --ecardShadow: #16071b;
+    --ecardImgShadow: rgb(34, 16, 46);
+}
+
 html,
 body {
-    background-image: linear-gradient(to right, #2d1e36, #0f0416);
+    background-image: var(--bodyBG);
     background-repeat: no-repeat;
     font-family: 'Montserrat', sans-serif;
 
@@ -40,7 +70,7 @@ body:focus {
 
 nav h2 {
     margin-left: 20px;
-    color: white;
+    color: var(--white);
     transition: 0.5s;
 }
 
@@ -68,7 +98,7 @@ nav h2 #moviz:hover {
 }
 
 .activeNavItem {
-    color: white;
+    color: var(--white);
 }
 
 .navItem {
@@ -80,13 +110,13 @@ nav h2 #moviz:hover {
 }
 
 .navItem:hover {
-    color: white;
+    color: var(--white);
 }
 
 #search {
     width: 40px;
     height: 40px;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 20px;
     margin: 20px;
     transition: 0.5s;
@@ -99,7 +129,7 @@ nav h2 #moviz:hover {
 
 #search:hover {
     width: 360px;
-    background-color: white;
+    background-color: var(--white);
 }
 
 #searchIcon {
@@ -118,7 +148,7 @@ nav h2 #moviz:hover {
     height: 40px;
     outline: none;
     border: none;
-    background-color: white;
+    background-color: var(--white);
     font-size: 18px;
 }
 
@@ -129,7 +159,7 @@ nav h2 #moviz:hover {
     height: 370px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://4.bp.blogspot.com/-Tz2h4J4VdPw/UvezidpNOeI/AAAAAAAAJck/oHfz4EHTg7o/s1600/2013_movies_wallpaper_by_z_designs-d5u94o3.jpg");
     text-align: center;
-    color: white;
+    color: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,11 +187,12 @@ nav h2 #moviz:hover {
     border-radius: 20px;
     display: inline-flex;
     flex-direction: column;
-    color: white;
+    color: var(--white);
     justify-content: center;
     align-items: center;
-    background-color: #2e1649;
+    background-color: var(--card);
     overflow: hidden;
+    box-shadow: 10px 10px 20px 5px var(--cardShadow);
 }
 
 .card:hover {
@@ -263,19 +294,19 @@ nav h2 #moviz:hover {
 
 .expandedCard {
     width: 100%;
-    background-image: linear-gradient(to right, rgb(26, 34, 65), rgb(4, 8, 22));
+    background-image: var(--ecard);
     margin: 0 60px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     transition: 0.5s;
     overflow: hidden;
-    box-shadow: 10px 10px 20px #070c1b;
+    box-shadow: 10px 10px 20px var(--ecardShadow);
 }
 
 #ecard {
     display: flex;
-    color: white;
+    color: var(--white);
 }
 
 #ecardInfo {
@@ -362,7 +393,7 @@ nav h2 #moviz:hover {
 }
 
 #ecardWatch {
-    color: white;
+    color: var(--white);
     font-size: 35px;
     margin: 20px 20px 20px;
 }
@@ -372,10 +403,71 @@ nav h2 #moviz:hover {
     height: 225px;
     border-radius: 20px;
     margin: 0 20px;
+    box-shadow: 10px 10px 20px var(--ecardShadow);
 }
 
 .ecardVideosList {
+    width: 100%;
+    display: flex;
+    transition: 0.5s ease-in-out;
     margin-bottom: 20px;
+}
+
+.ecardVideosOuter {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -225px;
+}
+
+#videoPre {
+    width: 40px;
+    height: 225px;
+    background-color: black;
+    align-self: flex-start;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 25px 0px 25px 1px;
+}
+
+#videoPre img {
+    width: 50px;
+    height: 50px;
+}
+
+#videoPre:hover {
+    opacity: 0.8 !important;
+}
+
+#videoNxt {
+    width: 40px;
+    height: 225px;
+    background-color: black;
+    align-self: flex-end;
+    z-index: 2;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -25px 0px 25px 1px;
+}
+
+#videoNxt img {
+    width: 50px;
+    height: 50px;
+}
+
+#videoNxt:hover {
+    opacity: 0.8 !important;
 }
 
 .blurred {
@@ -388,7 +480,7 @@ nav h2 #moviz:hover {
 @media (max-width: 1000px) {
 
     #search:hover {
-        background-color: white;
+        background-color: var(--white);
     }
 
     #searchInput {
@@ -396,7 +488,7 @@ nav h2 #moviz:hover {
         height: 40px;
         outline: none;
         border: none;
-        background-color: white;
+        background-color: var(--white);
         font-size: 18px;
     }
 
@@ -492,6 +584,32 @@ nav h2 #moviz:hover {
         height: 168.75px;
     }
 
+    .ecardVideosOuter {
+        margin-bottom: -168.75px;
+    }
+
+    #videoPre {
+        width: 40px;
+        height: 168.75px;
+        box-shadow: 20px 0px 20px;
+    }
+
+    #videoPre img {
+        width: 40px;
+        height: 40px;
+    }
+
+    #videoNxt {
+        width: 40px;
+        height: 168.75px;
+        box-shadow: -20px 0px 20px;
+    }
+
+    #videoNxt img {
+        width: 40px;
+        height: 40px;
+    }
+
 }
 
 @media (max-width: 650px) {
@@ -558,6 +676,32 @@ nav h2 #moviz:hover {
     .ecardVideo {
         width: 280px;
         height: 157.5px;
+    }
+
+    .ecardVideosOuter {
+        margin-bottom: -157.5px;
+    }
+
+    #videoPre {
+        width: 40px;
+        height: 157.5px;
+        box-shadow: 15px 0px 15px;
+    }
+
+    #videoPre img {
+        width: 30px;
+        height: 30px;
+    }
+
+    #videoNxt {
+        width: 40px;
+        height: 157.5px;
+        box-shadow: -15px 0px 15px;
+    }
+
+    #videoNxt img {
+        width: 30px;
+        height: 30px;
     }
 }
 
@@ -684,5 +828,31 @@ nav h2 #moviz:hover {
     .ecardVideo {
         width: 280px;
         height: 157.5px;
+    }
+
+    .ecardVideosOuter {
+        margin-bottom: -157.5px;
+    }
+
+    #videoPre {
+        width: 40px;
+        height: 157.5px;
+        box-shadow: 10px 0px 10px;
+    }
+
+    #videoPre img {
+        width: 20px;
+        height: 20px;
+    }
+
+    #videoNxt {
+        width: 40px;
+        height: 157.5px;
+        box-shadow: -10px 0px 10px;
+    }
+
+    #videoNxt img {
+        width: 20px;
+        height: 20px;
     }
 }

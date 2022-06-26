@@ -13,11 +13,15 @@ const ecardTagline = document.querySelector("#ecardTagline");
 const ecardRatingNTime = document.querySelector("#ecardRatingNTime");
 const ecardGenres = document.querySelector("#ecardGenres");
 const ecardOverview = document.querySelector("#ecardOverview");
+const ecardWatch= document.querySelector("#ecardWatch");
 const ecardVideosList = document.querySelector(".ecardVideosList");
 
 const moviz = document.querySelector("#moviz");
 const intro = document.querySelector(".intro");
+const preButton = document.querySelector("#videoPre");
+const nxtButton = document.querySelector("#videoNxt");
 let pages = 1;
+let margin = 0;
 
 moviz.addEventListener("click", () => {
     window.location.href = 'https://akshay-0706.github.io/Moviz/';
@@ -209,13 +213,35 @@ async function moreInfo(card, movie) {
 
     await addExpandedCardDetails(card, movie);
 
-    await $(document).ready(function () {
-        $('.ecardVideosList').slick({
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            variableWidth: true
-        });
-    });
+    // await $(document).ready(function () {
+    //     $('.ecardVideosList').slick({
+    //         slidesToShow: 2,
+    //         slidesToScroll: 1,
+    //         variableWidth: true
+    //     });
+    // });
+
+
+    if (ecardVideosList.childElementCount != 0) {
+        ecardWatch.style.display = "block";
+
+        const firstChild = ecardVideosList.firstChild;
+
+        const totalWidth = ecardVideosList.clientWidth;
+        const videosWidth = firstChild.clientWidth * ecardVideosList.childElementCount;
+
+        if (videosWidth - totalWidth > 0) {
+            nxtButton.style.opacity = "0.4";
+            nxtButton.style.visibility = "visible";
+        }
+        else {
+            nxtButton.style.opacity = "0";
+            nxtButton.style.visibility = "hidden";
+        }
+    }
+    else {
+        ecardWatch.style.display = "none";
+    }
 
     ecardOuter.style.opacity = "1";
     ecardOuter.style.visibility = "unset";
@@ -228,9 +254,14 @@ ecardClose.addEventListener("click", remove);
 
 async function remove() {
 
-    await $(document).ready(function () {
-        $('.ecardVideosList').slick("unslick");
-    });
+    // await $(document).ready(function () {
+    //     $('.ecardVideosList').slick("unslick");
+    // });
+
+    ecardVideosList.style.marginLeft = "0px";
+    preButton.style.opacity = "0";
+    preButton.style.visibility = "hidden";
+    margin = 0;
 
     ecardOuter.style.opacity = "0";
     ecardOuter.style.visibility = "hidden";
@@ -240,8 +271,6 @@ async function remove() {
 }
 
 async function addExpandedCardDetails(card, movie) {
-    console.log(window.innerWidth);
-    console.dir(expandedCard)
     if (window.innerWidth > 480)
         ecardImg.src = card.children[0].currentSrc;
     else
@@ -269,7 +298,7 @@ async function addExpandedCardDetails(card, movie) {
             let count = 0;
             let arr = [];
             for (const result of data.videos.results) {
-                if (count == 5)
+                if (count == 10)
                     break;
                 if (result.site == "YouTube" && result.type == "Trailer" || result.type == "Teaser") {
                     {
@@ -295,9 +324,58 @@ async function addExpandedCardDetails(card, movie) {
 
 
 
+preButton.addEventListener("click", function () {
+    const firstChild = ecardVideosList.firstChild;
+
+    // previousOffset = firstChild.clientWidth + ecardVideosList.offsetLeft;
+
+    // console.log(firstChild.offsetLeft);
+    // console.log(ecardVideosList.offsetLeft);
+
+    margin += parseInt(firstChild.clientWidth);
+    ecardVideosList.style.marginLeft = `${margin}px`;
+
+    nxtButton.style.opacity = "0.4";
+    nxtButton.style.visibility = "visible";
+
+    if (firstChild.clientWidth + ecardVideosList.offsetLeft >= 0) {
+        preButton.style.opacity = "0";
+        preButton.style.visibility = "hidden";
+    }
+})
+
+nxtButton.addEventListener("click", function () {
+    const firstChild = ecardVideosList.firstChild;
+    const lastChild = ecardVideosList.lastChild;
+
+    margin -= firstChild.clientWidth;
+    ecardVideosList.style.marginLeft = `${margin}px`;
+
+    console.log(lastChild.offsetLeft + lastChild.clientWidth);
+    console.log(ecardVideosList.clientWidth + expandedCard.offsetLeft);
+
+    preButton.style.opacity = "0.4";
+    preButton.style.visibility = "visible";
+
+    if (lastChild.offsetLeft <= ecardVideosList.clientWidth + expandedCard.offsetLeft) {
+        nxtButton.style.opacity = "0";
+        nxtButton.style.visibility = "hidden";
+    }
+
+})
 
 
 
+const hours = new Date().getHours();
+const isGreen = hours > 0 && hours <= 8;
+const isPurple = hours > 16 && hours <= 0;
+
+if (isGreen) {
+    document.body.classList.toggle("themeGreen");
+}
+else if(isPurple) {
+    document.body.classList.toggle("themePurple");
+}
 
 
 
