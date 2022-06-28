@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#040816" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>Moviz - Explore & Search</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="genre.css">
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
         integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
@@ -22,13 +22,17 @@
 </head>
 
 <body>
+    <!-- <img id="bg"
+        src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        alt=""> -->
+
     <header>
         <nav class="navBar">
             <h2><span id="moviz"><span id="theM">M</span>oviz</span></h2>
             <u class="navLinks">
-                <li class="navItem activeNavItem">Home</li>
+                <li class="navItem home">Home</li>
                 <li class="navItem upcoming">Upcoming</li>
-                <li class="navItem genres">Genres</li>
+                <li class="navItem activeNavItem genres">Genres</li>
                 <li class="navItem inactiveNavItem">About us</li>
             </u>
             <div id="themeNSearch">
@@ -42,51 +46,52 @@
                     </div>
                 </div>
             </div>
-
             <!-- <input id="search" type="text" placeholder="Search"> -->
         </nav>
     </header>
 
-    <section>
+    <!-- <section>
         <div class="intro">
             <div>Search & explore your favourite movies</div>
         </div>
-    </section>
+        </section> -->
 
     <main>
+        <h1>Explore <span id="genre">horror</span> movies</h1>
+
         <div class="movies">
             <!-- <div class="card">
-                <img class="cardImg"
-                    src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
-                    alt="">
-                <div class="cardInfo">
-                    <div class="cardTitle">Doctor strange & multiverse of madness</div>
-                    <span class="cardRating">9.8</span>
+                    <img class="cardImg"
+                        src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
+                        alt="">
+                    <div class="cardInfo">
+                        <div class="cardTitle">Doctor strange & multiverse of madness</div>
+                        <span class="cardRating">9.8</span>
+                    </div>
+                    <div class="cardOverview">
+                        <div>Overview</div>
+                        <div class="overview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam laboriosam
+                            adipisci iste asperiores iure, earum ullam architecto eligendi placeat eveniet sed laborum
+                            sapiente!
+                            Harum necessitatibus minus facere voluptate in dicta.</div>
+                    </div>
                 </div>
-                <div class="cardOverview">
-                    <div>Overview</div>
-                    <div class="overview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam laboriosam
-                        adipisci iste asperiores iure, earum ullam architecto eligendi placeat eveniet sed laborum
-                        sapiente!
-                        Harum necessitatibus minus facere voluptate in dicta.</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="cardImg"
-                    src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
-                    alt="">
-                <div class="cardInfo">
-                    <div class="cardTitle">Doctor strange & multiverse of madness</div>
-                    <span class="cardRating">9.8</span>
-                </div>
-                <div class="cardOverview">
-                    <div>Overview</div>
-                    <div class="overview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam laboriosam
-                        adipisci iste asperiores iure, earum ullam architecto eligendi placeat eveniet sed laborum
-                        sapiente!
-                        Harum necessitatibus minus facere voluptate in dicta.</div>
-                </div>
-            </div> -->
+                <div class="card">
+                    <img class="cardImg"
+                        src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
+                        alt="">
+                    <div class="cardInfo">
+                        <div class="cardTitle">Doctor strange & multiverse of madness</div>
+                        <span class="cardRating">9.8</span>
+                    </div>
+                    <div class="cardOverview">
+                        <div>Overview</div>
+                        <div class="overview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam laboriosam
+                            adipisci iste asperiores iure, earum ullam architecto eligendi placeat eveniet sed laborum
+                            sapiente!
+                            Harum necessitatibus minus facere voluptate in dicta.</div>
+                    </div>
+                </div> -->
         </div>
 
         <div class="ecardOuter">
@@ -128,11 +133,11 @@
 
                     <div class="ecardVideosList">
                         <!-- <div>
-                            <iframe class="ecardVideo" src="https://www.youtube.com/embed/aWzlQ2N6qqg?autoplay=1&mute=1"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div> -->
+                                <iframe class="ecardVideo" src="https://www.youtube.com/embed/aWzlQ2N6qqg?autoplay=1&mute=1"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div> -->
                     </div>
                 </div>
             </div>
@@ -156,7 +161,7 @@
         });
     </script> -->
 
-    <script src="home.js"></script>
+    <script src="genre.js"></script>
 
 </body>
 

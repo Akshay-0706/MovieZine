@@ -24,11 +24,52 @@ const nxtButton = document.querySelector("#videoNxt");
 let pages = 1;
 let margin = 0;
 
+
+
+
+
 moviz.addEventListener("click", () => {
     window.location.href = 'https://akshay-0706.github.io/Moviz/';
 })
 
+const home = document.querySelector(".home");
+home.addEventListener("click", () => {
+    window.location.href = 'index.html';
+})
 
+const latest = document.querySelector(".upcoming");
+latest.addEventListener("click", () => {
+    window.location.href = 'upcoming.html';
+})
+
+const genres = document.querySelector(".genres");
+genres.addEventListener("click", () => {
+    window.location.href = 'genres.html';
+})
+
+const main = document.querySelector("#main");
+
+window.addEventListener("scroll", function () {
+    console.log(window.scrollY * 0.002);
+    const value = this.window.scrollY;
+    const bg = this.document.querySelector("#bg");
+    bg.style.top = `${value * 0.8}px`;
+})
+
+const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+});
+
+let id = params.id;
+
+const genreName = document.querySelector("#genre");
+genreName.innerHTML = getCategory(parseInt(id));
+
+const base_url = "https://api.themoviedb.org/3";
+const genre = `/discover/movie?language=en-US&sort_by=popularity.desc&with_genres=${id}&page=`;
+const api_key = "ccc26339ecf7fc6dfb4177f12b602ced";
+const image_path = "https://image.tmdb.org/t/p/w500";
+const url = base_url + genre + pages + "&api_key=" + api_key;
 
 
 search.addEventListener("click", function () {
@@ -72,13 +113,7 @@ function setOverview(card) {
 
 }
 
-const base_url = "https://api.themoviedb.org/3";
-const popular = "/movie/popular?sort_by=popularity.desc&language=en-US&page=";
-const api_key = "ccc26339ecf7fc6dfb4177f12b602ced";
-const image_path = "https://image.tmdb.org/t/p/w500";
-const url = base_url + popular + pages + "&api_key=" + api_key;
 
-console.log(url)
 function loadMovies(url) {
     axios.get(url)
         .then(res => {
@@ -107,7 +142,7 @@ function appendCard(movie) {
     else
         poster_path = image_path + poster_path;
 
-    if (!adult && parseInt(release_date.split("-")[0]) >= 2018 && vote_average >= 3) {
+    if (!adult && parseInt(release_date.split("-")[0]) >= 2020 && vote_average >= 3) {
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML =
@@ -161,9 +196,8 @@ window.addEventListener("scroll", () => {
     }
     if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3000) {
         // for (let i = 0; i < 10; i++) {
-        console.log(pages)
         pages += 1;
-        let randomUrl = base_url + popular + pages + "&api_key=" + api_key;
+        let randomUrl = base_url + genre + pages + "&api_key=" + api_key;
         loadMovies(randomUrl);
         // }
     }
@@ -350,6 +384,10 @@ nxtButton.addEventListener("click", function () {
 
 })
 
+
+
+
+
 theme.addEventListener("click", () => {
     if (theme.innerHTML == "B̳") {
         document.body.classList.add("themeGreen");
@@ -369,6 +407,9 @@ theme.addEventListener("click", () => {
     }
 })
 
+
+
+
 // const hours = new Date().getHours();
 // const isGreen = hours > 0 && hours <= 8;
 // const isPurple = hours > 16 && hours <= 0;
@@ -380,21 +421,6 @@ theme.addEventListener("click", () => {
 //     document.body.classList.toggle("themePurple");
 // }
 
-
-
-
-
-const latest = document.querySelector(".upcoming");
-latest.addEventListener("click", () => {
-    window.location.href = 'upcoming.html';
-})
-
-const genres = document.querySelector(".genres");
-genres.addEventListener("click", () => {
-    window.location.href = 'genres.html';
-})
-
-
 // Work in progress
 const inactive = document.querySelectorAll(".inactiveNavItem");
 for (const links of inactive) {
@@ -403,8 +429,8 @@ for (const links of inactive) {
     })
 }
 
-function getCategory(id) {
-    switch (id) {
+function getCategory(idNum) {
+    switch (idNum) {
         case 28:
             return "Action"
             break;
@@ -445,7 +471,7 @@ function getCategory(id) {
             return "Romance"
             break;
         case 878:
-            return "Sci-Fi"
+            return "Science Fiction"
             break;
         case 53:
             return "Thriller"
@@ -455,6 +481,8 @@ function getCategory(id) {
             break;
 
         default:
+            id = 27;
+            return "Horror"
             break;
     }
 }

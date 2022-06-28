@@ -2,10 +2,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    transition: background-color 0.5s ease-in-out;
 }
 
 :root {
-    --bodyBG: linear-gradient(to right, #1e2336, #040816);
+    /* --bodyBG: linear-gradient(to right, #1e2336, #040816); */
+    --bodyBG: #060d24;
     --white: white;
     --card: #101a38;
     --cardShadow: rgba(2, 7, 22, 0.253);
@@ -15,7 +17,8 @@
 }
 
 .themeGreen {
-    --bodyBG: linear-gradient(to right, #0b351b, #04160b);
+    /* --bodyBG: linear-gradient(to right, #0b351b, #04160b); */
+    --bodyBG: #051f0f;
     --white: white;
     --card: #193d1e;
     --cardShadow: rgba(2, 22, 5, 0.253);
@@ -25,7 +28,8 @@
 }
 
 .themePurple {
-    --bodyBG: linear-gradient(to right, #280b35, #110416);
+    /* --bodyBG: linear-gradient(to right, #280b35, #110416); */
+    --bodyBG: #180620;
     --white: white;
     --card: #33193d;
     --cardShadow: rgba(16, 2, 22, 0.253);
@@ -36,7 +40,8 @@
 
 html,
 body {
-    background-image: var(--bodyBG);
+    /* background-image: var(--bodyBG); */
+    background-color: var(--bodyBG);
     background-repeat: no-repeat;
     font-family: 'Montserrat', sans-serif;
 
@@ -47,6 +52,15 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    scroll-behavior: smooth;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+    /* transition: 0.5s; */
+    /* transition: background-color 1s;
+    -webkit-transition: background-color 1s;
+    -o-transition: background-color 1s;
+    -moz-transition: background-color 1s; */
 }
 
 html,
@@ -113,12 +127,35 @@ nav h2 #moviz:hover {
     color: var(--white);
 }
 
+#themeNSearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+#theme {
+    width: 40px;
+    height: 40px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    color: #7e9cff;
+    font-size: 20px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 1px 2px rgb(0, 0, 0);
+}
+
 #search {
     width: 40px;
     height: 40px;
     background-color: var(--white);
-    border-radius: 20px;
-    margin: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /* margin: 20px 20px 20px 0; */
     transition: 0.5s;
     box-shadow: 0 0 3px 5px rgba(2, 7, 22, 0.253);
     display: flex;
@@ -193,6 +230,7 @@ nav h2 #moviz:hover {
     background-color: var(--card);
     overflow: hidden;
     box-shadow: 10px 10px 20px 5px var(--cardShadow);
+    transition: 0.5s ease-in-out;
 }
 
 .card:hover {

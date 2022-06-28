@@ -1,3 +1,4 @@
+const themeNSearch = document.querySelector("#themeNSearch");
 const search = document.querySelector("#search");
 const navBar = document.querySelector(".navBar");
 const input = document.querySelector("#searchInput");
@@ -13,7 +14,7 @@ const ecardTagline = document.querySelector("#ecardTagline");
 const ecardRatingNTime = document.querySelector("#ecardRatingNTime");
 const ecardGenres = document.querySelector("#ecardGenres");
 const ecardOverview = document.querySelector("#ecardOverview");
-const ecardWatch= document.querySelector("#ecardWatch");
+const ecardWatch = document.querySelector("#ecardWatch");
 const ecardVideosList = document.querySelector(".ecardVideosList");
 
 const moviz = document.querySelector("#moviz");
@@ -34,6 +35,7 @@ search.addEventListener("click", function () {
         navBar.children[0].style.width = "100%";
         navBar.children[0].style.marginTop = "20px";
         navBar.children[0].style.textAlign = "center";
+        themeNSearch.style.width = "100%";
         search.style.width = "100%";
     }
     else {
@@ -47,6 +49,7 @@ search.addEventListener("focusout", function () {
         navBar.children[0].style.width = "unset";
         navBar.children[0].style.marginTop = "0";
         navBar.children[0].style.textAlign = "start";
+        themeNSearch.style.width = "unset";
     }
 })
 
@@ -127,14 +130,17 @@ function appendCard(movie) {
         setOverview(card);
         return card;
     }
+    else
+        return null;
 }
 
 function showMovies(data) {
     data.results.forEach(movie => {
         const card = appendCard(movie);
-        card.addEventListener("click", function () {
-            moreInfo(card, movie);
-        });
+        if (card != null)
+            card.addEventListener("click", function () {
+                moreInfo(card, movie);
+            });
     });
 }
 
@@ -192,10 +198,7 @@ input.addEventListener("input", () => {
     }
 })
 
-const home = document.querySelector(".home");
-home.addEventListener("click", () => {
-    window.location.href = 'index.html';
-})
+
 
 
 
@@ -365,19 +368,49 @@ nxtButton.addEventListener("click", function () {
 })
 
 
+theme.addEventListener("click", () => {
+    if (theme.innerHTML == "B̳") {
+        document.body.classList.add("themeGreen");
+        theme.innerHTML = "G̳";
+        theme.style.color = "#5bff5b";
+    }
+    else if (theme.innerHTML == "G̳") {
+        document.body.classList.add("themePurple");
+        theme.innerHTML = "P̳";
+        theme.style.color = "#c78bff";
+    }
+    else
+    {
+        document.body.classList.remove("themePurple");
+        document.body.classList.remove("themeGreen");
+        theme.innerHTML = "B̳";
+        theme.style.color = "#7e9cff";
+    }
+})
 
-const hours = new Date().getHours();
-const isGreen = hours >= 0 && hours < 8;
-const isPurple = hours >= 16 && hours < 24;
 
-if (isGreen) {
-    document.body.classList.toggle("themeGreen");
-}
-else if(isPurple) {
-    document.body.classList.toggle("themePurple");
-}
+// const hours = new Date().getHours();
+// const isGreen = hours > 0 && hours <= 8;
+// const isPurple = hours > 16 && hours <= 0;
+
+// if (isGreen) {
+//     document.body.classList.toggle("themeGreen");
+// }
+// else if (isPurple) {
+//     document.body.classList.toggle("themePurple");
+// }
 
 
+
+const home = document.querySelector(".home");
+home.addEventListener("click", () => {
+    window.location.href = 'index.html';
+})
+
+const genres = document.querySelector(".genres");
+genres.addEventListener("click", () => {
+    window.location.href = 'genres.html';
+})
 
 // Work in progress
 const inactive = document.querySelectorAll(".inactiveNavItem");
@@ -449,9 +482,6 @@ function getCategory(id) {
         case 80:
             return "Crime"
             break;
-        case 99:
-            return "Documentary"
-            break;
         case 18:
             return "Drama"
             break;
@@ -479,17 +509,11 @@ function getCategory(id) {
         case 878:
             return "Sci-Fi"
             break;
-        case 10770:
-            return "TV Movie"
-            break;
         case 53:
             return "Thriller"
             break;
         case 10752:
             return "War"
-            break;
-        case 37:
-            return "Western"
             break;
 
         default:
