@@ -17,7 +17,7 @@ const ecardOverview = document.querySelector("#ecardOverview");
 const ecardWatch = document.querySelector("#ecardWatch");
 const ecardVideosList = document.querySelector(".ecardVideosList");
 
-const moviz = document.querySelector("#moviz");
+const movieZine = document.querySelector("#movieZine");
 const intro = document.querySelector(".intro");
 const preButton = document.querySelector("#videoPre");
 const nxtButton = document.querySelector("#videoNxt");
@@ -27,8 +27,8 @@ let margin = 0;
 
 
 
-moviz.addEventListener("click", () => {
-    window.location.href = 'https://akshay-0706.github.io/Moviz/';
+movieZine.addEventListener("click", () => {
+    window.location.href = 'https://akshay-0706.github.io/MovieZine/';
 })
 
 const popular = document.querySelector(".popular");

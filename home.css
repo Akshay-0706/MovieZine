@@ -92,13 +92,13 @@ nav h2 {
     font-size: 34px;
 }
 
-nav h2 #moviz {
+nav h2 #movieZine {
     cursor: pointer;
     transition: 0.5s;
     margin-right: 50px;
 }
 
-nav h2 #moviz:hover {
+nav h2 #movieZine:hover {
     color: rgb(170, 170, 170);
 }
 

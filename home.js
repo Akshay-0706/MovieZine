@@ -1,3 +1,8 @@
+const moviz = document.querySelector("#movieZine");
+movieZine.addEventListener("click", () => {
+    window.location.href = 'https://akshay-0706.github.io/MovieZine/';
+})
+
 const themeNSearch = document.querySelector("#themeNSearch");
 themeNSearch.style.opacity = "0";
 themeNSearch.style.visibility = "hidden";
