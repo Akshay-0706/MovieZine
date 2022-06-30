@@ -28,6 +28,14 @@ moviz.addEventListener("click", () => {
     window.location.href = 'https://akshay-0706.github.io/Moviz/';
 })
 
+const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+});
+
+let color = params.theme;
+if (color == null)
+    color = "blue";
+
 
 search.addEventListener("click", function () {
     input.focus();
@@ -368,26 +376,55 @@ nxtButton.addEventListener("click", function () {
 })
 
 
+const themeColor = document.querySelector("#themeColor");
+const tab = document.querySelector('meta[name="theme-color"]');
+
+if (color == "blue") {
+    document.body.classList.remove("themePurple");
+    document.body.classList.remove("themeGreen");
+    themeColor.style.backgroundColor = "#5a78ff";
+    tab.setAttribute('content', '#060d24');
+    color = "blue";
+}
+else if (color == "green") {
+    document.body.classList.add("themeGreen");
+    themeColor.style.backgroundColor = "#5aff5a";
+    tab.setAttribute('content', '#051f0f');
+    color = "green";
+}
+else {
+    document.body.classList.add("themePurple");
+    themeColor.style.backgroundColor = "#c78bff";
+    tab.setAttribute('content', '#180620');
+    color = "purple";
+}
+
 theme.addEventListener("click", () => {
-    if (theme.innerHTML == "B̳") {
+
+    if (themeColor.style.backgroundColor == "rgb(90, 120, 255)") {
         document.body.classList.add("themeGreen");
-        theme.innerHTML = "G̳";
-        theme.style.color = "#5bff5b";
+        themeColor.style.backgroundColor = "#5aff5a";
+        tab.setAttribute('content', '#051f0f');
+        color = "green";
     }
-    else if (theme.innerHTML == "G̳") {
+    else if (themeColor.style.backgroundColor == "rgb(90, 255, 90)") {
         document.body.classList.add("themePurple");
-        theme.innerHTML = "P̳";
-        theme.style.color = "#c78bff";
+        themeColor.style.backgroundColor = "#c78bff";
+        tab.setAttribute('content', '#180620');
+        color = "purple";
     }
-    else
-    {
+    else {
         document.body.classList.remove("themePurple");
         document.body.classList.remove("themeGreen");
-        theme.innerHTML = "B̳";
-        theme.style.color = "#7e9cff";
+        themeColor.style.backgroundColor = "#5a78ff";
+        tab.setAttribute('content', '#060d24');
+        color = "blue";
     }
 })
 
+setInterval(() => {
+    themeColor.classList.toggle("opacityGone");
+}, 1000);
 
 // const hours = new Date().getHours();
 // const isGreen = hours > 0 && hours <= 8;
@@ -404,21 +441,18 @@ theme.addEventListener("click", () => {
 
 const home = document.querySelector(".home");
 home.addEventListener("click", () => {
-    window.location.href = 'index.html';
+    window.location.href = `index.html?theme=${color}`;
 })
 
-const genres = document.querySelector(".genres");
-genres.addEventListener("click", () => {
-    window.location.href = 'genres.html';
+const popular = document.querySelector(".popular");
+popular.addEventListener("click", () => {
+    window.location.href = `popular.html?theme=${color}`;
 })
 
-// Work in progress
-const inactive = document.querySelectorAll(".inactiveNavItem");
-for (const links of inactive) {
-    links.addEventListener("click", () => {
-        alert("This feature will be available soon!");
-    })
-}
+// const about = document.querySelector(".about");
+// about.addEventListener("click", () => {
+//     window.location.href = 'about.html';
+// })
 
 
 function getMonth(month) {

@@ -2,47 +2,37 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition: background-color 0.5s ease-in-out;
 }
 
 :root {
-    /* --bodyBG: linear-gradient(to right, #1e2336, #040816); */
-    --bodyBG: #060d24;
+    --bodyBG: linear-gradient(to right, #1e2336, #040816);
+    --mainBG: linear-gradient(to right, #1c233a, #060c25);
     --white: white;
     --card: #101a38;
     --cardShadow: rgba(2, 7, 22, 0.253);
-    --ecard: linear-gradient(to right, rgb(26, 34, 65), rgb(4, 8, 22));
-    --ecardShadow: #070c1b;
-    --ecardImgShadow: rgb(16, 23, 46);
 }
 
 .themeGreen {
-    /* --bodyBG: linear-gradient(to right, #0b351b, #04160b); */
-    --bodyBG: #051f0f;
+    --bodyBG: linear-gradient(to right, #0b351b, #04160b);
+    --bodyBG: linear-gradient(to right, #0b351b, #04160b);
     --white: white;
     --card: #193d1e;
     --cardShadow: rgba(2, 22, 5, 0.253);
-    --ecard: linear-gradient(to right, rgb(26, 65, 29), rgb(5, 22, 4));
-    --ecardShadow: #091b07;
-    --ecardImgShadow: rgb(16, 46, 20);
 }
 
 .themePurple {
-    /* --bodyBG: linear-gradient(to right, #280b35, #110416); */
-    --bodyBG: #180620;
+    --bodyBG: linear-gradient(to right, #280b35, #110416);
+    --bodyBG: linear-gradient(to right, #280b35, #110416);
     --white: white;
     --card: #33193d;
     --cardShadow: rgba(16, 2, 22, 0.253);
-    --ecard: linear-gradient(to right, rgb(51, 26, 65), rgb(15, 4, 22));
-    --ecardShadow: #16071b;
-    --ecardImgShadow: rgb(34, 16, 46);
 }
 
 html,
 body {
-    /* background-image: var(--bodyBG); */
-    background-color: var(--bodyBG);
+    background-color: black;
     background-repeat: no-repeat;
+    background-size: contain;
     font-family: 'Montserrat', sans-serif;
 
     -webkit-tap-highlight-color: transparent;
@@ -54,13 +44,9 @@ body {
     user-select: none;
 
     scroll-behavior: smooth;
-    -webkit-transition: background-color 0.5s ease-in-out;
-    transition: background-color 0.5s ease-in-out;
-    /* transition: 0.5s; */
-    /* transition: background-color 1s;
-    -webkit-transition: background-color 1s;
-    -o-transition: background-color 1s;
-    -moz-transition: background-color 1s; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 html,
@@ -72,10 +58,22 @@ body:focus {
     display: none;
 }
 
+#bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    /* transform: scale(1); */
+}
+
+#page {
+    position: relative;
+}
+
 .navBar {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     transition: 0.5s;
@@ -86,6 +84,7 @@ nav h2 {
     margin-left: 20px;
     color: var(--white);
     transition: 0.5s;
+    margin-top: 20px;
 }
 
 #theM {
@@ -96,6 +95,7 @@ nav h2 {
 nav h2 #moviz {
     cursor: pointer;
     transition: 0.5s;
+    margin-right: 50px;
 }
 
 nav h2 #moviz:hover {
@@ -105,9 +105,10 @@ nav h2 #moviz:hover {
 .navLinks {
     display: flex;
     text-decoration: none;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     list-style: none;
+    margin-top: 30px;
     color: rgb(170, 170, 170);
 }
 
@@ -131,6 +132,7 @@ nav h2 #moviz:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
     margin: 20px;
 }
 
@@ -189,335 +191,130 @@ nav h2 #moviz:hover {
     font-size: 18px;
 }
 
-/* header css over */
 
-.intro {
-    width: 100%;
-    height: 370px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://s3-us-west-2.amazonaws.com/prd-rteditorial/wp-content/uploads/2018/03/13153742/RT_300EssentialMovies_700X250.jpg");
-    text-align: center;
+
+
+
+
+#main h1 {
+    font-size: 2.4rem;
     color: var(--white);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding: 50px;
+}
+
+.cards {
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: 4em;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-}
-
-.intro div {
-    margin: 0 20px;
-}
-
-.movies {
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    z-index: 1;
+    padding-bottom: 20px;
 }
 
-.card {
-    width: 400px;
-    margin: 20px;
-    border-radius: 20px;
-    display: inline-flex;
-    flex-direction: column;
+.cards div {
+    font-size: 1.5rem;
+    width: 24rem;
+    height: 13.5rem;
+    text-align: center;
     color: var(--white);
-    justify-content: center;
-    align-items: center;
-    background-color: var(--card);
-    overflow: hidden;
-    box-shadow: 10px 10px 20px 5px var(--cardShadow);
-    transition: 0.5s ease-in-out;
-}
-
-.card:hover {
-    cursor: pointer;
-}
-
-.cardInfo {
-    width: 100%;
+    border-radius: 20px;
     margin: 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem 1rem;
-    transition: 0.5s;
-}
-
-.cardTitle {
-    margin-right: 10px;
-}
-
-.cardInfo span {
-    background-color: #030714;
-    padding: 0.25rem 0.5rem;
-    border-radius: 3px;
-}
-
-.cardImg {
-    width: 400px;
-    height: 600px;
-    transition: 0.5s;
-}
-
-/* .card div:nth-of-type(3) {
-    color: red;
-    align-self: center;
-    align-content: flex-start;
-} */
-
-.cardOverview {
-    width: 350px;
-    position: absolute;
-    display: flex;
-    opacity: 0;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: 0.5s;
+    box-shadow: 10px 10px 20px 5px var(--cardShadow);
 }
 
-.cardOverview div:first-child {
-    margin-bottom: 30px;
-    font-size: 40px;
-    font-weight: 700;
-}
-
-.cardOverview div:last-child {
-    text-align: center;
-    font-size: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 16;
-    /* number of lines to show */
-    line-clamp: 16;
-    -webkit-box-orient: vertical;
-}
-
-.red {
-    color: red;
-}
-
-.orange {
-    color: orange;
-}
-
-.greenyellow {
-    color: greenyellow;
-}
-
-.ecardOuter {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    opacity: 0;
-    visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.expandedCard {
-    width: 100%;
-    background-image: var(--ecard);
-    margin: 0 60px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    transition: 0.5s;
-    overflow: hidden;
-    box-shadow: 10px 10px 20px var(--ecardShadow);
-}
-
-#ecard {
-    display: flex;
-    color: var(--white);
-}
-
-#ecardInfo {
-    width: 100%;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
-    transition: 0.5s;
-}
-
-#ecardTagline {
-    font-size: 20px;
-    margin: 0 20px 20px;
-}
-
-#ecardInfo div:nth-of-type(3) {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-#ecardTitle {
-    font-size: 40px;
-    margin: 0 20px 20px;
-}
-
-#ecardClose {
-    width: 20px;
-    height: 20px;
-    margin: 20px;
-    align-self: flex-end;
+.cards div:hover {
+    opacity: 0.9;
     cursor: pointer;
 }
 
-#ecardImg {
-    width: 300px;
-    height: 450px;
-    transition: 0.5s;
-    margin-top: -60px;
-    border-radius: 20px;
-    box-shadow: 10px 10px 10px var(--ecardImgShadow);
+#action {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://thathashtagshow.com/wp-content/uploads/2022/03/top-gun-cover.jpg");
+    background-size: cover;
 }
 
-#ecardRatingNTime {
-    width: 180px;
-    font-size: 20px;
-    background-color: #030714;
-    padding: 0.5rem 0.5rem;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 10px;
-    text-align: center;
+#adventure {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://www.dailyhawker.in/wp-content/uploads/2020/01/Hollywood-Adventure-movies-960x540.png");
+    background-size: cover;
 }
 
-#ecardGenres {
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
+#animation {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://d3fd5j8wprxn3h.cloudfront.net/wp-content/uploads/2021/09/kena2.jpg");
+    background-size: cover;
 }
 
-#ecardGenres li {
-    border: 1px solid rgb(214, 214, 214);
-    border-radius: 20px;
-    padding: 10px;
-    margin: 0 10px 20px;
+#comedy {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://m.media-amazon.com/images/M/MV5BMzYyNjI0MzA3M15BMl5BanBnXkFtZTgwMDA3Nzc5NzE@._V1_.jpg");
+    background-size: cover;
 }
 
-#ecardGenres li:hover {
-    border: 1px solid rgb(104, 104, 104);
-    cursor: pointer;
-    color: rgb(214, 214, 214);
+#crime {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhZ5C_TdBTZjVMzNU4AJK7yyDG2DbwiMGjhA&usqp=CAU");
+    background-size: cover;
 }
 
-#ecardOverview {
-    font-size: 20px;
-    margin: 20px 20px 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-height: 5.2em;
-    line-height: 1.3em;
+#drama {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://www.mapsofindia.com/ci-moi-images/my-india/2016/09/ms-dhoni-the-untold-story-movie-review-and-rating.jpg");
+    background-size: cover;
 }
 
-#ecardWatch {
-    color: var(--white);
-    font-size: 35px;
-    margin: 20px 20px 20px;
+#family {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://cdn.mos.cms.futurecdn.net/p9RSESrcqzKwYrGcwVg8Vg.jpg");
+    background-size: cover;
 }
 
-.ecardVideo {
-    width: 400px;
-    height: 225px;
-    border-radius: 20px;
-    margin: 0 20px;
-    box-shadow: 10px 10px 20px var(--ecardShadow);
+#fantasy {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://cdn.mos.cms.futurecdn.net/NJXQ8h3mUd9mhsh2m8xpba.jpg");
+    background-size: cover;
 }
 
-.ecardVideosList {
-    width: 100%;
-    display: flex;
-    transition: 0.5s ease-in-out;
-    margin-bottom: 20px;
+#history {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://static.toiimg.com/photo/90953797.jpeg");
+    background-size: cover;
 }
 
-.ecardVideosOuter {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: -225px;
+#horror {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://www.denofgeek.com/wp-content/uploads/2021/02/Valak-as-the-Nun-in-The-Conjuring-Movies.png?fit=1200%2C708");
+    background-size: cover;
 }
 
-#videoPre {
-    width: 40px;
-    height: 225px;
-    background-color: black;
-    align-self: flex-start;
-    z-index: 2;
-    opacity: 0;
-    visibility: hidden;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 25px 0px 25px 1px;
+#music {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://wpcdn.us-midwest-1.vip.tn-cloud.net/www.charlotteparent.com/content/uploads/data-import/b5001588/Isrtillbeliebepic-1024x683.jpg");
+    background-size: cover;
 }
 
-#videoPre img {
-    width: 50px;
-    height: 50px;
+#mystery {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://whatnerd.com/wp-content/uploads/2021/08/harry-potter-books-ruined-young-adult-genre-featured-1.jpg");
+    background-size: cover;
 }
 
-#videoPre:hover {
-    opacity: 0.8 !important;
+#romance {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://images2.alphacoders.com/694/694252.jpg");
+    background-size: cover;
 }
 
-#videoNxt {
-    width: 40px;
-    height: 225px;
-    background-color: black;
-    align-self: flex-end;
-    z-index: 2;
-    opacity: 0.4;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: -25px 0px 25px 1px;
+#scifi {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://writedrunkeditdrunk.files.wordpress.com/2022/02/moonfall-1200-1200-675-675-crop-000000.jpg");
+    background-size: cover;
 }
 
-#videoNxt img {
-    width: 50px;
-    height: 50px;
+#thriller {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://occ.a.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABVqcLQpf6mxvyIfcaadFQhph_iN1tmNUjmHziE4hXp6HsNL0ViweqrNA3JUqdX_ukwGIWZzli2G4cry-1PYBFRk22_a8C2LG86Cj.jpg?r=1ef");
+    background-size: cover;
 }
 
-#videoNxt:hover {
-    opacity: 0.8 !important;
+#war {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2019/07/26/806551-uri.jpg");
+    background-size: cover;
 }
 
-.blurred {
-    filter: blur(8px);
-}
+/* header css over */
 
-
-
-
-
-
-
-
-
-
-@media (max-width: 1000px) {
+@media (max-width: 480px) {
 
     #search:hover {
         background-color: var(--white);
@@ -543,368 +340,18 @@ nav h2 #moviz:hover {
         justify-content: space-around;
     }
 
-    /* #search {
-        order: 1;
-    } */
-
-    .intro {
-        margin-bottom: 10px;
-        font-size: 3em;
-    }
-
-    .card {
-        width: 300px;
-    }
-
-    .cardImg {
-        width: 300px;
-        height: 450px;
-        transition: 0.5s;
+    #main h1 {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        padding: 40px;
     }
 
 
-
-
-    .expandedCard {
-        width: 100%;
-        margin: 0 40px;
-    }
-
-    #ecardTagline {
-        font-size: 15px;
-        margin: 0 20px 20px;
-    }
-
-    #ecardTitle {
-        font-size: 25px;
-        margin: 0 20px 20px;
-    }
-
-    #ecardClose {
-        width: 20px;
-        height: 20px;
-        margin: 20px;
-    }
-
-    #ecardImg {
-        width: 280px;
-        height: 400px;
-        margin-top: -60px;
-    }
-
-    #ecardRatingNTime {
-        width: 150px;
-        font-size: 15px;
-    }
-
-    #ecardGenres li {
-        font-size: 12px;
+    .cards div {
+        font-size: 1.5rem;
+        width: 20.8rem;
+        height: 11.7rem;
         border-radius: 20px;
-        padding: 10px;
-        margin: 0 5px 15px;
+        margin: 10px;
     }
-
-    #ecardOverview {
-        font-size: 15px;
-        margin: 0 20px 20px;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-    }
-
-    #ecardWatch {
-        font-size: 20px;
-        margin: 20px 20px 20px;
-    }
-
-    .ecardVideo {
-        width: 300px;
-        height: 168.75px;
-    }
-
-    .ecardVideosOuter {
-        margin-bottom: -168.75px;
-    }
-
-    #videoPre {
-        width: 40px;
-        height: 168.75px;
-        box-shadow: 20px 0px 20px;
-    }
-
-    #videoPre img {
-        width: 40px;
-        height: 40px;
-    }
-
-    #videoNxt {
-        width: 40px;
-        height: 168.75px;
-        box-shadow: -20px 0px 20px;
-    }
-
-    #videoNxt img {
-        width: 40px;
-        height: 40px;
-    }
-
-}
-
-@media (max-width: 650px) {
-
-    .expandedCard {
-        width: 100%;
-        margin: 0 20px;
-    }
-
-    #ecard {
-        align-items: center;
-    }
-
-    #ecardTagline {
-        font-size: 15px;
-        margin: 0 20px 20px;
-    }
-
-    #ecardTitle {
-        font-size: 20px;
-        margin: 0 20px 20px;
-        margin-top: -40px;
-        margin-right: 60px;
-    }
-
-    #ecardClose {
-        width: 15px;
-        height: 15px;
-        margin: 20px;
-    }
-
-    #ecardImg {
-        width: 160px;
-        height: 200px;
-        align-self: flex-start;
-    }
-
-    #ecardRatingNTime {
-        width: 150px;
-        font-size: 14px;
-    }
-
-    #ecardGenres li {
-        font-size: 12px;
-        border-radius: 20px;
-        padding: 10px;
-        margin: 0 5px 10px;
-    }
-
-    #ecardOverview {
-        font-size: 14px;
-        margin: 0 20px 20px;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-    }
-
-    #ecardWatch {
-        font-size: 18px;
-        margin: 20px 20px 20px;
-    }
-
-    .ecardVideo {
-        width: 280px;
-        height: 157.5px;
-    }
-
-    .ecardVideosOuter {
-        margin-bottom: -157.5px;
-    }
-
-    #videoPre {
-        width: 40px;
-        height: 157.5px;
-        box-shadow: 15px 0px 15px;
-    }
-
-    #videoPre img {
-        width: 30px;
-        height: 30px;
-    }
-
-    #videoNxt {
-        width: 40px;
-        height: 157.5px;
-        box-shadow: -15px 0px 15px;
-    }
-
-    #videoNxt img {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-
-
-
-
-@media (max-width: 480px) {
-
-    .card {
-        width: 100%;
-        height: 200px;
-        margin-top: 10px;
-        margin-left: 20px;
-        margin-right: 20px;
-        flex-direction: row;
-    }
-
-    .intro {
-        height: 250px;
-        margin-bottom: 10px;
-        font-size: 2em;
-    }
-
-    .cardImg {
-        width: 150px;
-        height: 200px;
-        transition: 0.5s;
-    }
-
-    .cardInfo {
-        flex-direction: column-reverse;
-        align-self: flex-start;
-    }
-
-    .cardTitle {
-        font-size: 15px;
-        align-self: flex-start;
-        width: 100%;
-    }
-
-    .cardRating {
-        align-self: flex-end;
-        margin-bottom: 10px;
-        margin-right: -10px;
-    }
-
-    .cardOverview div:first-child {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-
-    .cardOverview div:last-child {
-        font-size: 15px;
-        margin: 0 20px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        /* number of lines to show */
-        line-clamp: 4;
-        -webkit-box-orient: vertical;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .expandedCard {
-        width: 100%;
-        margin: 0 20px;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(4, 8, 22, 0.8)), url("https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg");
-        background-size: cover;
-    }
-
-    #ecard {
-        align-items: center;
-    }
-
-    #ecardTagline {
-        font-size: 15px;
-        margin: 0 20px 20px;
-    }
-
-    #ecardTitle {
-        font-size: 20px;
-        margin: 0 20px 20px;
-        margin-top: -40px;
-        margin-right: 60px;
-    }
-
-    #ecardClose {
-        width: 15px;
-        height: 15px;
-        margin: 20px;
-    }
-
-    #ecardImg {
-        display: none;
-    }
-
-    #ecardRatingNTime {
-        width: 170px;
-        font-size: 14px;
-    }
-
-    #ecardGenres li {
-        font-size: 12px;
-        border-radius: 20px;
-        padding: 10px;
-        margin: 0 5px 10px;
-    }
-
-    #ecardOverview {
-        font-size: 14px;
-        margin: 0 20px 20px;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-    }
-
-    #ecardWatch {
-        font-size: 18px;
-        margin: 20px 20px 20px;
-    }
-
-    .ecardVideo {
-        width: 280px;
-        height: 157.5px;
-    }
-
-    .ecardVideosOuter {
-        margin-bottom: -157.5px;
-    }
-
-    #videoPre {
-        width: 40px;
-        height: 157.5px;
-        box-shadow: 10px 0px 10px;
-    }
-
-    #videoPre img {
-        width: 20px;
-        height: 20px;
-    }
-
-    #videoNxt {
-        width: 40px;
-        height: 157.5px;
-        box-shadow: -10px 0px 10px;
-    }
-
-    #videoNxt img {
-        width: 20px;
-        height: 20px;
-    }
-
 }

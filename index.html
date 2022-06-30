@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#040816" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <title>Moviz - Explore & Search</title>
+    <title>MovieZine - Genres</title>
     <link rel="stylesheet" href="home.css">
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
@@ -22,123 +22,67 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navBar">
-            <h2><span id="moviz"><span id="theM">M</span>oviz</span></h2>
-            <u class="navLinks">
-                <li class="navItem activeNavItem">Home</li>
-                <li class="navItem upcoming">Upcoming</li>
-                <li class="navItem genres">Genres</li>
-                <li class="navItem inactiveNavItem">About us</li>
-            </u>
-            <div id="themeNSearch">
-                <div id="theme">B̳</div>
-                <div id="search">
-                    <div id="searchIcon">
-                        <img src="assets/search.svg" alt="">
-                    </div>
-                    <div id="searchInputDiv">
-                        <input type="text" placeholder="Search" id="searchInput">
+    <img id="bg"
+        src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        alt="">
+    <main id="page">
+
+        <header>
+            <nav class="navBar">
+                <h2><span id="moviz"><span id="theM">M</span>ovie<span id="theM">Z</span>ine</span></h2>
+                <u class="navLinks">
+                    <li class="navItem activeNavItem">Home</li>
+                    <li class="navItem popular">Popular</li>
+                    <li class="navItem upcoming">Upcoming</li>
+                </u>
+                <div id="themeNSearch">
+                    <div id="theme">B̳</div>
+                    <div id="search">
+                        <div id="searchIcon">
+                            <img src="assets/search.svg" alt="">
+                        </div>
+                        <div id="searchInputDiv">
+                            <input type="text" placeholder="Search" id="searchInput">
+                        </div>
                     </div>
                 </div>
-            </div>
+    
+                <!-- <input id="search" type="text" placeholder="Search"> -->
+            </nav>
+        </header>
 
-            <!-- <input id="search" type="text" placeholder="Search"> -->
-        </nav>
-    </header>
-
-    <section>
+        <!-- <section>
         <div class="intro">
             <div>Search & explore your favourite movies</div>
         </div>
-    </section>
+        </section> -->
 
-    <main>
-        <div class="movies">
-            <!-- <div class="card">
-                <img class="cardImg"
-                    src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
-                    alt="">
-                <div class="cardInfo">
-                    <div class="cardTitle">Doctor strange & multiverse of madness</div>
-                    <span class="cardRating">9.8</span>
-                </div>
-                <div class="cardOverview">
-                    <div>Overview</div>
-                    <div class="overview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam laboriosam
-                        adipisci iste asperiores iure, earum ullam architecto eligendi placeat eveniet sed laborum
-                        sapiente!
-                        Harum necessitatibus minus facere voluptate in dicta.</div>
-                </div>
-            </div>
-            <div class="card">
-                <img class="cardImg"
-                    src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
-                    alt="">
-                <div class="cardInfo">
-                    <div class="cardTitle">Doctor strange & multiverse of madness</div>
-                    <span class="cardRating">9.8</span>
-                </div>
-                <div class="cardOverview">
-                    <div>Overview</div>
-                    <div class="overview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam laboriosam
-                        adipisci iste asperiores iure, earum ullam architecto eligendi placeat eveniet sed laborum
-                        sapiente!
-                        Harum necessitatibus minus facere voluptate in dicta.</div>
-                </div>
-            </div> -->
-        </div>
+        <section id="main">
 
-        <div class="ecardOuter">
-            <div class="expandedCard">
-                <img id="ecardClose" src="assets/close.svg" alt="">
-                <div id="ecard">
-                    <img id="ecardImg"
-                        src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
-                        alt="Poster image unavailable">
-                    <div id="ecardInfo">
-                        <div id="ecardTitle">Doctor strange & multiverse of madness</div>
-                        <div id="ecardTagline">Loading tagline...</div>
-                        <div>
-                            <span id="ecardRatingNTime">9.8 | 126 min</span>
-                            <ul id="ecardGenres">
-                                <li>Adventure</li>
-                                <li>Adventure</li>
-                                <li>Adventure</li>
-                                <li>Adventure</li>
-                                <li>Adventure</li>
-                            </ul>
-                        </div>
-                        <div id="ecardOverview">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam
-                            laboriosam
-                        </div>
-                    </div>
+            <h1>Explore movies</h1>
+
+            <section>
+                <div class="cards">
+                    <div id="action">Action</div>
+                    <div id="adventure">Adventure</div>
+                    <div id="animation">Animation</div>
+                    <div id="comedy">Comedy</div>
+                    <div id="crime">Crime</div>
+                    <div id="drama">Drama</div>
+                    <div id="family">Family</div>
+                    <div id="fantasy">Fantasy</div>
+                    <div id="history">History</div>
+                    <div id="horror">Horror</div>
+                    <div id="music">Music</div>
+                    <div id="mystery">Mystery</div>
+                    <div id="romance">Romance</div>
+                    <div id="scifi">Sci-Fi</div>
+                    <div id="thriller">Thriller</div>
+                    <div id="war">War</div>
                 </div>
-                <div>
-                    <div id="ecardWatch">Watch Trailers & Teasers</div>
-                    <div class="ecardVideosOuter">
-                        <div id="videoPre">
-                            <img src="assets/previous.svg"></img>
-                        </div>
-                        <div id="videoNxt">
-                            <img src="assets/next.svg"></img>
-                        </div>
-                    </div>
+            </section>
 
-                    <div class="ecardVideosList">
-                        <!-- <div>
-                            <iframe class="ecardVideo" src="https://www.youtube.com/embed/aWzlQ2N6qqg?autoplay=1&mute=1"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+        </section>
     </main>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -24,59 +24,17 @@ const nxtButton = document.querySelector("#videoNxt");
 let pages = 1;
 let margin = 0;
 
-
-
-
 moviz.addEventListener("click", () => {
     window.location.href = 'https://akshay-0706.github.io/Moviz/';
-})
-
-const popular = document.querySelector(".popular");
-popular.addEventListener("click", () => {
-    window.location.href = `popular.html?theme=${color}`;
-})
-
-const upcoming = document.querySelector(".upcoming");
-upcoming.addEventListener("click", () => {
-    window.location.href = `upcoming.html?theme=${color}`;
-})
-
-// const genres = document.querySelector(".genres");
-// genres.addEventListener("click", () => {
-//     window.location.href = 'genres.html';
-// })
-
-// const about = document.querySelector(".about");
-// about.addEventListener("click", () => {
-//     window.location.href = 'about.html';
-// })
-
-const main = document.querySelector("#main");
-
-window.addEventListener("scroll", function () {
-    console.log(window.scrollY * 0.002);
-    const value = this.window.scrollY;
-    const bg = this.document.querySelector("#bg");
-    bg.style.top = `${value * 0.8}px`;
 })
 
 const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
 });
 
-let id = params.id;
 let color = params.theme;
 if (color == null)
     color = "blue";
-
-const genreName = document.querySelector("#genre");
-genreName.innerHTML = getCategory(parseInt(id));
-
-const base_url = "https://api.themoviedb.org/3";
-const genre = `/discover/movie?language=en-US&sort_by=popularity.desc&with_genres=${id}&page=`;
-const api_key = "ccc26339ecf7fc6dfb4177f12b602ced";
-const image_path = "https://image.tmdb.org/t/p/w500";
-const url = base_url + genre + pages + "&api_key=" + api_key;
 
 
 search.addEventListener("click", function () {
@@ -120,7 +78,13 @@ function setOverview(card) {
 
 }
 
+const base_url = "https://api.themoviedb.org/3";
+const popular = "/movie/popular?sort_by=popularity.desc&language=en-US&page=";
+const api_key = "ccc26339ecf7fc6dfb4177f12b602ced";
+const image_path = "https://image.tmdb.org/t/p/w500";
+const url = base_url + popular + pages + "&api_key=" + api_key;
 
+console.log(url)
 function loadMovies(url) {
     axios.get(url)
         .then(res => {
@@ -149,7 +113,7 @@ function appendCard(movie) {
     else
         poster_path = image_path + poster_path;
 
-    if (!adult && parseInt(release_date.split("-")[0]) >= 2020 && vote_average >= 3) {
+    if (!adult && parseInt(release_date.split("-")[0]) >= 2018 && vote_average >= 3) {
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML =
@@ -186,7 +150,7 @@ window.addEventListener("scroll", () => {
     if (window.scrollY != 0) {
 
         navBar.style.position = "fixed";
-        navBar.style.backgroundColor = "rgba(2, 7, 22, 0.623)";
+        navBar.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
         navBar.style.backdropFilter = "blur(8px)";
         if (document.activeElement != input)
             navBar.children[0].style.width = "50%";
@@ -203,8 +167,9 @@ window.addEventListener("scroll", () => {
     }
     if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3000) {
         // for (let i = 0; i < 10; i++) {
+        console.log(pages)
         pages += 1;
-        let randomUrl = base_url + genre + pages + "&api_key=" + api_key;
+        let randomUrl = base_url + popular + pages + "&api_key=" + api_key;
         loadMovies(randomUrl);
         // }
     }
@@ -391,14 +356,8 @@ nxtButton.addEventListener("click", function () {
 
 })
 
-
-
-
-
 const themeColor = document.querySelector("#themeColor");
 const tab = document.querySelector('meta[name="theme-color"]');
-themeColor.style.backgroundColor = "rgb(90, 120, 255)";
-
 
 if (color == "blue") {
     document.body.classList.remove("themePurple");
@@ -425,24 +384,23 @@ theme.addEventListener("click", () => {
     if (themeColor.style.backgroundColor == "rgb(90, 120, 255)") {
         document.body.classList.add("themeGreen");
         themeColor.style.backgroundColor = "#5aff5a";
-        tab.setAttribute('content', '#051f0f');
+        tab.setAttribute('content',  '#051f0f');
         color = "green";
     }
     else if (themeColor.style.backgroundColor == "rgb(90, 255, 90)") {
         document.body.classList.add("themePurple");
         themeColor.style.backgroundColor = "#c78bff";
-        tab.setAttribute('content', '#180620');
+        tab.setAttribute('content',  '#180620');
         color = "purple";
     }
     else {
         document.body.classList.remove("themePurple");
         document.body.classList.remove("themeGreen");
         themeColor.style.backgroundColor = "#5a78ff";
-        tab.setAttribute('content', '#060d24');
+        tab.setAttribute('content',  '#060d24');
         color = "blue";
     }
 })
-
 
 setInterval(() => {
     themeColor.classList.toggle("opacityGone");
@@ -461,8 +419,25 @@ setInterval(() => {
 
 
 
-function getCategory(idNum) {
-    switch (idNum) {
+const home = document.querySelector(".home");
+home.addEventListener("click", () => {
+    window.location.href = `index.html?theme=${color}`;
+})
+
+const latest = document.querySelector(".upcoming");
+latest.addEventListener("click", () => {
+    window.location.href = `upcoming.html?theme=${color}`;
+})
+
+
+
+// const about = document.querySelector(".about");
+// about.addEventListener("click", () => {
+//     window.location.href = 'about.html';
+// })
+
+function getCategory(id) {
+    switch (id) {
         case 28:
             return "Action"
             break;
@@ -503,7 +478,7 @@ function getCategory(idNum) {
             return "Romance"
             break;
         case 878:
-            return "Science Fiction"
+            return "Sci-Fi"
             break;
         case 53:
             return "Thriller"
@@ -513,8 +488,6 @@ function getCategory(idNum) {
             break;
 
         default:
-            id = 27;
-            return "Horror"
             break;
     }
 }
