@@ -173,7 +173,7 @@ function showMovies(data) {
 window.addEventListener("scroll", () => {
     if (window.scrollY != 0) {
 
-        navBar.style.position = "fixed";
+//         navBar.style.position = "fixed";
         navBar.style.backgroundColor = "rgba(2, 7, 22, 0.623)";
         navBar.style.backdropFilter = "blur(8px)";
         if (document.activeElement != input)
@@ -181,7 +181,7 @@ window.addEventListener("scroll", () => {
         navBar.children[1].style.display = "none";
     }
     else {
-        navBar.style.position = "unset";
+//         navBar.style.position = "unset";
         navBar.style.backgroundColor = "unset";
         navBar.style.backdropFilter = "unset";
         if (document.activeElement != input)
