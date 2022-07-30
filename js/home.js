@@ -9,12 +9,12 @@ movieZine.addEventListener("click", () => {
 
 const popular = document.querySelector(".popular");
 popular.addEventListener("click", () => {
-    window.location.href = '/html/popular.html';
+    window.location.href = 'html/popular.html';
 })
 
 const latest = document.querySelector(".upcoming");
 latest.addEventListener("click", () => {
-    window.location.href = '/html/upcoming.html';
+    window.location.href = 'html/upcoming.html';
 })
 
 // const about = document.querySelector(".about");
@@ -51,7 +51,7 @@ if (color == null)
 for (const card of cards.children) {
     card.addEventListener("click", () => {
         console.log(card.id);
-        window.location.href = `/html/genre.html?id=${getCategory(card.id)}&theme=${color}`;
+        window.location.href = `html/genre.html?id=${getCategory(card.id)}&theme=${color}`;
     })
 }
 
