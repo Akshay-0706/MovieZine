@@ -90,13 +90,14 @@ nav h2 {
 
 #theM {
     color: red;
-    font-size: 34px;
+    font-size: 2rem;
 }
 
 nav h2 #movieZine {
     cursor: pointer;
     transition: 0.5s;
     margin-right: 50px;
+    font-size: 1.4rem;
 }
 
 nav h2 #movieZine:hover {
@@ -436,6 +437,10 @@ nav h2 #movieZine:hover {
         text-align: center;
     }
 
+    nav h2 #movieZine {
+        font-size: 1.2rem;
+    }
+
     #theM{
         font-size: 1.8rem;
     }
@@ -507,6 +512,10 @@ nav h2 #movieZine:hover {
         font-size: .8rem;
     }
 
+    nav h2 #movieZine {
+        font-size: 1rem;
+    }
+
     #theM{
         font-size: 1.5rem;
     }
@@ -566,6 +575,10 @@ nav h2 #movieZine:hover {
         display: grid;
         padding: 1rem 1.5rem;
         font-size: .7rem;
+    }
+
+    nav h2 #movieZine {
+        font-size: .9rem;
     }
 
     #theM{
