@@ -34,6 +34,21 @@ const stars = document.querySelector("#stars");
 const stars2 = document.querySelector("#stars2");
 const stars3 = document.querySelector("#stars3");
 
+const navBar = document.querySelector(".navBar");
+
+window.addEventListener("resize", function () {
+    if (window.innerWidth <= 480) {
+        navBar.children[0].style.width = "100%";
+        navBar.children[0].style.textAlign = "center";
+    }
+    else {
+        navBar.children[0].style.width = "unset";
+        navBar.children[0].style.textAlign = "start";
+    }
+});
+
+
+
 // console.log(document.body.scrollHeight);
 // console.dir(stars);
 // stars.style.top = document.body.scrollHeight;
