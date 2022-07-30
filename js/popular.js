@@ -443,12 +443,12 @@ setInterval(() => {
 
 const home = document.querySelector(".home");
 home.addEventListener("click", () => {
-    window.location.href = `/index.html?theme=${color}`;
+    window.location.href = `../index.html?theme=${color}`;
 })
 
 const latest = document.querySelector(".upcoming");
 latest.addEventListener("click", () => {
-    window.location.href = `/html/upcoming.html?theme=${color}`;
+    window.location.href = `upcoming.html?theme=${color}`;
 })
 
 

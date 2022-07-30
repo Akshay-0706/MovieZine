@@ -34,12 +34,12 @@ movieZine.addEventListener("click", () => {
 
 const popular = document.querySelector(".popular");
 popular.addEventListener("click", () => {
-    window.location.href = `/html/popular.html?theme=${color}`;
+    window.location.href = `popular.html?theme=${color}`;
 })
 
 const upcoming = document.querySelector(".upcoming");
 upcoming.addEventListener("click", () => {
-    window.location.href = `/html/upcoming.html?theme=${color}`;
+    window.location.href = `upcoming.html?theme=${color}`;
 })
 
 // const genres = document.querySelector(".genres");
