@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#040816" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>MovieZine - Upcoming movies</title>
+    <link rel="stylesheet" href="../css/stars.css">
+    <link rel="stylesheet" href="../css/upcoming.css">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navBar">
+            <h2><span id="movieZine"><span id="theM">M</span>ovie<span id="theM">Z</span>ine</span></h2>
+            <u class="navLinks">
+                <li class="navItem home">Home</li>
+                <li class="navItem popular">Popular</li>
+                <li class="navItem activeNavItem upcoming">Upcoming</li>
+            </u>
+            <div id="themeNSearch">
+                <div id="theme">
+                    <div id="themeColor"></div>
+                </div>
+                <div id="search">
+                    <div id="searchIcon">
+                        <img src="../assets/search.svg" alt="">
+                    </div>
+                    <div id="searchInputDiv">
+                        <input type="text" placeholder="Search" id="searchInput">
+                    </div>
+                </div>
+            </div>
+
+            <!-- <input id="search" type="text" placeholder="Search"> -->
+        </nav>
+    </header>
+
+    <div id="bg">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
+    <section>
+        <div class="intro">
+            <div>Explore upcoming movies</div>
+        </div>
+    </section>
+
+    <main>
+        <div class="movies">
+            <!-- <div class="card">
+                <img class="cardImg"
+                    src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
+                    alt="">
+                <div class="cardInfo">
+                    <div class="cardInfoExtra">
+                    <div class="cardTitle">Doctor strange & multiverse of madness</div>
+                    <span class="cardRating">9.8</span>
+                </div>
+                    <ul class="cardGenres">
+                        <li>Adventure</li>
+                        <li>Adventure</li>
+                        <li>Adventure</li>
+                        <li>Adventure</li>
+                        <li>Adventure</li>
+                    </ul>
+                </div>
+                <div class="cardOverview">
+                    <div>Overview</div>
+                    <div class="overview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam laboriosam
+                        adipisci iste asperiores iure, earum ullam architecto eligendi placeat eveniet sed laborum
+                        sapiente!
+                        Harum necessitatibus minus facere voluptate in dicta.</div>
+                </div>
+            </div> -->
+            <!-- <div class="card">
+                <img class="cardImg"
+                    src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
+                    alt="">
+                <div class="cardInfo">
+                    <div class="cardTitle">Doctor strange & multiverse of madness</div>
+                    <span class="cardRating">9.8</span>
+                </div>
+                <div class="cardOverview">
+                    <div>Overview</div>
+                    <div class="overview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam laboriosam
+                        adipisci iste asperiores iure, earum ullam architecto eligendi placeat eveniet sed laborum
+                        sapiente!
+                        Harum necessitatibus minus facere voluptate in dicta.</div>
+                </div>
+            </div> -->
+        </div>
+
+        <div class="ecardOuter">
+            <div class="expandedCard">
+                <img id="ecardClose" src="../assets/close.svg" alt="">
+                <div id="ecard">
+                    <img id="ecardImg"
+                        src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
+                        alt="Poster image unavailable">
+                    <div id="ecardInfo">
+                        <div id="ecardTitle">Doctor strange & multiverse of madness</div>
+                        <div id="ecardTagline">Loading tagline...</div>
+                        <div>
+                            <span id="ecardRatingNTime">9.8 | 126 min</span>
+                            <ul id="ecardGenres">
+                                <li>Adventure</li>
+                                <li>Adventure</li>
+                                <li>Adventure</li>
+                                <li>Adventure</li>
+                                <li>Adventure</li>
+                            </ul>
+                        </div>
+                        <div id="ecardOverview">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam
+                            laboriosam
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div id="ecardWatch">Watch Trailers & Teasers</div>
+                    <div class="ecardVideosOuter">
+                        <div id="videoPre">
+                            <img src="../assets/previous.svg"></img>
+                        </div>
+                        <div id="videoNxt">
+                            <img src="../assets/next.svg"></img>
+                        </div>
+                    </div>
+
+                    <div class="ecardVideosList">
+                        <!-- <div>
+                            <iframe class="ecardVideo" src="https://www.youtube.com/embed/aWzlQ2N6qqg?autoplay=1&mute=1"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+
+    <script src="../js/upcoming.js"></script>
+</body>
+
+</html>

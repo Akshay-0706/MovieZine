@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#040816" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>MovieZine - Explore movies</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/stars.css">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="bg">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
+    <main id="page">
+        <header>
+            <nav class="navBar" id="home">
+                <h2><span id="movieZine"><span id="theM">M</span>ovie<span id="theM">Z</span>ine</span></h2>
+                <u class="navLinks">
+                    <li class="navItem activeNavItem">Home</li>
+                    <li class="navItem popular">Popular</li>
+                    <li class="navItem upcoming">Upcoming</li>
+                </u>
+                <!-- <div id="themeNSearch">
+                    <div id="theme">B̳</div>
+                    <div id="search">
+                        <div id="searchIcon">
+                            <img src="/assets/search.svg" alt="">
+                        </div>
+                        <div id="searchInputDiv">
+                            <input type="text" placeholder="Search" id="searchInput">
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <input id="search" type="text" placeholder="Search"> -->
+            </nav>
+        </header>
+
+        <!-- <section>
+        <div class="intro">
+            <div>Search & explore your favourite movies</div>
+        </div>
+        </section> -->
+
+        <section id="main">
+
+            <h1>Explore movies</h1>
+
+            <section>
+                <div class="cards">
+                    <div id="action">Action</div>
+                    <div id="adventure">Adventure</div>
+                    <div id="animation">Animation</div>
+                    <div id="comedy">Comedy</div>
+                    <div id="crime">Crime</div>
+                    <div id="drama">Drama</div>
+                    <div id="family">Family</div>
+                    <div id="fantasy">Fantasy</div>
+                    <div id="history">History</div>
+                    <div id="horror">Horror</div>
+                    <div id="music">Music</div>
+                    <div id="mystery">Mystery</div>
+                    <div id="romance">Romance</div>
+                    <div id="scifi">Sci-Fi</div>
+                    <div id="thriller">Thriller</div>
+                    <div id="war">War</div>
+                </div>
+            </section>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footerUpper">
+                <div class="footerIntro">
+                    <h2><span class="footerTitle"><span id="theM">M</span>ovie<span id="theM">Z</span>ine</span></h2>
+                    <div class="footerInfo">Explore different movies by genres, new upcoming movies and the popular
+                        ones!
+                    </div>
+                </div>
+                <div class="footer_nav">
+                    <div class="footer_nav_title">
+                        Quick links
+                    </div>
+                    <div class="footer_nav_divider"></div>
+                    <div class="footer_list">
+                        <a href="#home" class="footer_link">Home</a>
+                        <a href="#popular" class="footer_link">Popular</a>
+                        <a href="#upcoming" class="footer_link">Upcoming</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tmdb">
+                <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"
+                    alt="" class="tmdb_logo">
+                <div class="tmdb_atr">MovieZine uses the TMDB API but is not endorsed or certified by TMDB.</div>
+            </div>
+            <div class="footer_end">
+                <div class="footer_divider"></div>
+                <div class="footer_atr">Designed & Developed by Akshay Vhatkar</div>
+                <div class="footer_endline">Copyright &#169; 2022 MovieZine | All rights reserved</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+    <!-- <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ecardVideosList').slick({
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                variableWidth: true
+            });
+        });
+    </script> -->
+
+    <script src="js/home.js"></script>
+
+</body>
+
+</html>

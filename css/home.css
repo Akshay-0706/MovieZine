@@ -1,0 +1,616 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bodyBG: linear-gradient(to right, #1e2336, #040816);
+    --mainBG: linear-gradient(to right, #1c233a, #060c25);
+    --white: white;
+    --card: #101a38;
+    --cardShadow: rgba(2, 7, 22, 0.253);
+}
+
+.themeGreen {
+    --bodyBG: linear-gradient(to right, #0b351b, #04160b);
+    --bodyBG: linear-gradient(to right, #0b351b, #04160b);
+    --white: white;
+    --card: #193d1e;
+    --cardShadow: rgba(2, 22, 5, 0.253);
+}
+
+.themePurple {
+    --bodyBG: linear-gradient(to right, #280b35, #110416);
+    --bodyBG: linear-gradient(to right, #280b35, #110416);
+    --white: white;
+    --card: #33193d;
+    --cardShadow: rgba(16, 2, 22, 0.253);
+}
+
+html,
+body {
+    /* background-color: black; */
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+    background-image: radial-gradient(ellipse at bottom, #1b2735 0%, #090a05 100%);
+    background-position: center;
+
+    font-family: 'Montserrat', sans-serif;
+
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    scroll-behavior: smooth;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    overflow: auto;
+}
+
+html,
+body:focus {
+    outline: none !important;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#bg {
+    width: 100%;
+    /* transform: scale(1); */
+}
+
+
+#page {
+    position: relative;
+}
+
+.navBar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+nav h2 {
+    margin-left: 20px;
+    color: var(--white);
+    transition: 0.5s;
+    margin-top: 20px;
+}
+
+#theM {
+    color: red;
+    font-size: 2rem;
+}
+
+nav h2 #movieZine {
+    cursor: pointer;
+    transition: 0.5s;
+    margin-right: 50px;
+    font-size: 1.4rem;
+}
+
+nav h2 #movieZine:hover {
+    color: rgb(170, 170, 170);
+}
+
+.navLinks {
+    display: flex;
+    text-decoration: none;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin-top: 30px;
+    color: rgb(170, 170, 170);
+}
+
+.activeNavItem {
+    color: var(--white);
+}
+
+.navItem {
+    display: inline-block;
+    padding: 0 10px;
+    transition: color 0.5s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.navItem:hover {
+    color: var(--white);
+}
+
+#themeNSearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    margin: 20px;
+}
+
+#theme {
+    width: 40px;
+    height: 40px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    color: #7e9cff;
+    font-size: 20px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 1px 2px rgb(0, 0, 0);
+}
+
+#search {
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /* margin: 20px 20px 20px 0; */
+    transition: 0.5s;
+    box-shadow: 0 0 3px 5px rgba(2, 7, 22, 0.253);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#search:hover {
+    width: 360px;
+    background-color: var(--white);
+}
+
+#searchIcon {
+    padding-left: 10px;
+}
+
+#searchInputDiv {
+    height: 40px;
+    margin-left: 10px;
+    transition: 0.5s;
+    margin-right: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    background-color: var(--white);
+    font-size: 18px;
+}
+
+
+
+
+
+
+#main h1 {
+    font-size: 2.4rem;
+    color: var(--white);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding: 50px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+.cards div {
+    font-size: 1.5rem;
+    width: 24rem;
+    height: 13.5rem;
+    text-align: center;
+    color: var(--white);
+    border-radius: 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 10px 20px 5px var(--cardShadow);
+}
+
+.cards div:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+#action {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://thathashtagshow.com/wp-content/uploads/2022/03/top-gun-cover.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#adventure {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://www.dailyhawker.in/wp-content/uploads/2020/01/Hollywood-Adventure-movies-960x540.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#animation {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://d3fd5j8wprxn3h.cloudfront.net/wp-content/uploads/2021/09/kena2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#comedy {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://m.media-amazon.com/images/M/MV5BMzYyNjI0MzA3M15BMl5BanBnXkFtZTgwMDA3Nzc5NzE@._V1_.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#crime {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhZ5C_TdBTZjVMzNU4AJK7yyDG2DbwiMGjhA&usqp=CAU");
+    background-size: cover;
+    background-position: center;
+}
+
+#drama {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://www.mapsofindia.com/ci-moi-images/my-india/2016/09/ms-dhoni-the-untold-story-movie-review-and-rating.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#family {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://cdn.mos.cms.futurecdn.net/p9RSESrcqzKwYrGcwVg8Vg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#fantasy {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://cdn.mos.cms.futurecdn.net/NJXQ8h3mUd9mhsh2m8xpba.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#history {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://static.toiimg.com/photo/90953797.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+#horror {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://www.denofgeek.com/wp-content/uploads/2021/02/Valak-as-the-Nun-in-The-Conjuring-Movies.png?fit=1200%2C708");
+    background-size: cover;
+    background-position: center;
+}
+
+#music {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://wpcdn.us-midwest-1.vip.tn-cloud.net/www.charlotteparent.com/content/uploads/data-import/b5001588/Isrtillbeliebepic-1024x683.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#mystery {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://whatnerd.com/wp-content/uploads/2021/08/harry-potter-books-ruined-young-adult-genre-featured-1.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#romance {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://images2.alphacoders.com/694/694252.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#scifi {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://writedrunkeditdrunk.files.wordpress.com/2022/02/moonfall-1200-1200-675-675-crop-000000.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#thriller {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://occ.a.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABVqcLQpf6mxvyIfcaadFQhph_iN1tmNUjmHziE4hXp6HsNL0ViweqrNA3JUqdX_ukwGIWZzli2G4cry-1PYBFRk22_a8C2LG86Cj.jpg?r=1ef");
+    background-size: cover;
+    background-position: center;
+}
+
+#war {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2019/07/26/806551-uri.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* header css over */
+
+
+.footer {
+    width: 100%;
+    height: 400px;
+    background-color: black;
+    color: white;
+    display: grid;
+    padding: 2rem 10rem;
+}
+
+.footerUpper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footerIntro {
+    display: grid;
+    width: 70%;
+    row-gap: 1rem;
+}
+
+.footer_nav {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.footer_list {
+    display: flex;
+    flex-direction: column;
+    row-gap: .5rem;
+}
+
+.footer_list a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    transition: .5s;
+}
+
+.footer_list a:hover {
+    color: white;
+}
+
+.tmdb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+    margin: 20px 0;
+}
+
+.tmdb_logo {
+    width: 50px;
+    height: auto;
+}
+
+.footer_end {
+    width: 100%;
+    display: grid;
+    row-gap: 1rem;
+}
+
+.footer_divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer_atr {
+    justify-self: center;
+}
+
+.footer_endline {
+    margin-top: -10px;
+    font-size: .8rem;
+    justify-self: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 870px) {
+
+    .footer {
+        width: 100%;
+        height: 300px;
+        display: grid;
+        padding: 1rem 4rem;
+        font-size: .9rem;
+    }
+
+    .footerUpper {
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .footerIntro {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1rem;
+        text-align: center;
+    }
+
+    nav h2 #movieZine {
+        font-size: 1.2rem;
+    }
+
+    #theM {
+        font-size: 1.8rem;
+    }
+
+    .footerTitle {
+        font-size: 1.2rem;
+    }
+
+    .footer_nav {
+        display: flex;
+        column-gap: 1rem;
+        align-items: center;
+    }
+
+    .footer_nav_divider {
+        width: 2px;
+        height: 20px;
+        border-radius: 1px;
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer_list {
+        display: flex;
+        flex-direction: row;
+        column-gap: .5rem;
+    }
+
+    .tmdb {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1rem;
+        margin: 0;
+    }
+
+    .tmdb_logo {
+        width: 45px;
+    }
+
+    .footer_end {
+        width: 100%;
+        display: grid;
+        row-gap: .4rem;
+        text-align: center;
+    }
+
+    .footer_endline {
+        font-size: .7rem;
+    }
+
+    .cards div {
+        font-size: 1.3rem;
+        width: 20rem;
+        height: 10rem;
+        border-radius: 10px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 750px) {
+
+    #main h1 {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        padding: 40px;
+    }
+
+    .footer {
+        width: 100%;
+        height: 300px;
+        display: grid;
+        padding: 1rem 3rem;
+        font-size: .8rem;
+    }
+
+    nav h2 #movieZine {
+        font-size: 1rem;
+    }
+
+    #theM {
+        font-size: 1.5rem;
+    }
+
+    .footerTitle {
+        font-size: 1rem;
+    }
+
+    .tmdb_logo {
+        width: 40px;
+    }
+
+    .footer_endline {
+        font-size: .65rem;
+    }
+
+    .cards div {
+        font-size: 1.3rem;
+        width: 13rem;
+        height: 7rem;
+        border-radius: 10px;
+        margin: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #search:hover {
+        background-color: var(--white);
+    }
+
+    #searchInput {
+        width: 100%;
+        height: 40px;
+        outline: none;
+        border: none;
+        background-color: var(--white);
+        font-size: 18px;
+    }
+
+    .navBar h2 {
+        width: 50%;
+    }
+
+    .navLinks {
+        width: 100%;
+        order: 3;
+        margin-bottom: 20px;
+        justify-content: space-evenly;
+    }
+
+    #main h1 {
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        padding: 40px;
+    }
+
+    .footer {
+        width: 100%;
+        height: 300px;
+        display: grid;
+        padding: 1rem 1.5rem;
+        font-size: .7rem;
+    }
+
+    nav h2 #movieZine {
+        font-size: .9rem;
+    }
+
+    #theM {
+        font-size: 1.4rem;
+    }
+
+    .footerTitle {
+        font-size: .9rem;
+    }
+
+    .tmdb_logo {
+        width: 35px;
+    }
+
+    .footer_endline {
+        font-size: .6rem;
+    }
+
+
+    .cards div {
+        font-size: 1rem;
+        width: 10rem;
+        height: 6rem;
+        border-radius: 7px;
+        margin: 5px;
+    }
+}
