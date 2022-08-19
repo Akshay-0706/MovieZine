@@ -227,105 +227,106 @@ nav h2 #movieZine:hover {
     justify-content: center;
     align-items: center;
     box-shadow: 10px 10px 20px 5px var(--cardShadow);
+    transition: .5s;
 }
 
 .cards div:hover {
-    opacity: 0.9;
+    filter: brightness(75%);
     cursor: pointer;
 }
 
 #action {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://thathashtagshow.com/wp-content/uploads/2022/03/top-gun-cover.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/action.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #adventure {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://www.dailyhawker.in/wp-content/uploads/2020/01/Hollywood-Adventure-movies-960x540.png");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/adventure.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #animation {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://d3fd5j8wprxn3h.cloudfront.net/wp-content/uploads/2021/09/kena2.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/animation.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #comedy {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://m.media-amazon.com/images/M/MV5BMzYyNjI0MzA3M15BMl5BanBnXkFtZTgwMDA3Nzc5NzE@._V1_.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/comedy.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #crime {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhZ5C_TdBTZjVMzNU4AJK7yyDG2DbwiMGjhA&usqp=CAU");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/crime.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #drama {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://www.mapsofindia.com/ci-moi-images/my-india/2016/09/ms-dhoni-the-untold-story-movie-review-and-rating.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/drama.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #family {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://cdn.mos.cms.futurecdn.net/p9RSESrcqzKwYrGcwVg8Vg.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/family.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #fantasy {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://cdn.mos.cms.futurecdn.net/NJXQ8h3mUd9mhsh2m8xpba.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/fantasy.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #history {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://static.toiimg.com/photo/90953797.jpeg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/history.webp");
     background-size: cover;
     background-position: center;
 }
 
 #horror {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://www.denofgeek.com/wp-content/uploads/2021/02/Valak-as-the-Nun-in-The-Conjuring-Movies.png?fit=1200%2C708");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/horror.webp");
     background-size: cover;
     background-position: center;
 }
 
 #music {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://wpcdn.us-midwest-1.vip.tn-cloud.net/www.charlotteparent.com/content/uploads/data-import/b5001588/Isrtillbeliebepic-1024x683.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/music.webp");
     background-size: cover;
     background-position: center;
 }
 
 #mystery {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://whatnerd.com/wp-content/uploads/2021/08/harry-potter-books-ruined-young-adult-genre-featured-1.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/mystery.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #romance {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://images2.alphacoders.com/694/694252.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/romance.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #scifi {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://writedrunkeditdrunk.files.wordpress.com/2022/02/moonfall-1200-1200-675-675-crop-000000.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/scifi.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #thriller {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://occ.a.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABVqcLQpf6mxvyIfcaadFQhph_iN1tmNUjmHziE4hXp6HsNL0ViweqrNA3JUqdX_ukwGIWZzli2G4cry-1PYBFRk22_a8C2LG86Cj.jpg?r=1ef");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/thriller.jpg");
     background-size: cover;
     background-position: center;
 }
 
 #war {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2019/07/26/806551-uri.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(4, 8, 22, 0.5)), url("../assets/images/war.webp");
     background-size: cover;
     background-position: center;
 }

@@ -64,7 +64,15 @@ search.addEventListener("click", function () {
 })
 
 search.addEventListener("focusout", function () {
+    if (window.innerWidth <= 480) {
+        search.style.width = "25px";
+    }
+    else if (window.innerWidth <= 650) {
+        search.style.width = "27px";
+    }
+    else {
     search.style.width = "40px";
+    }
     if (window.innerWidth <= 1000) {
         navBar.children[0].style.width = "unset";
         navBar.children[0].style.marginTop = "0";

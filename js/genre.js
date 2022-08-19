@@ -85,6 +85,7 @@ search.addEventListener("click", function () {
         navBar.children[0].style.width = "100%";
         navBar.children[0].style.marginTop = "20px";
         navBar.children[0].style.textAlign = "center";
+
         themeNSearch.style.width = "100%";
         search.style.width = "100%";
         intro.style.paddingTop = "150px";
@@ -95,7 +96,15 @@ search.addEventListener("click", function () {
 })
 
 search.addEventListener("focusout", function () {
-    search.style.width = "40px";
+    if (window.innerWidth <= 480) {
+        search.style.width = "25px";
+    }
+    else if (window.innerWidth <= 650) {
+        search.style.width = "27px";
+    }
+    else {
+        search.style.width = "40px";
+    }
     if (window.innerWidth <= 1000) {
         navBar.children[0].style.width = "unset";
         navBar.children[0].style.marginTop = "0";
