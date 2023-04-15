@@ -1002,6 +1002,7 @@ nav h2 #movieZine:hover {
 
     .expandedCard {
         width: 100%;
+        height: auto;
         margin: 0 20px;
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(4, 8, 22, 0.8)), url("https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg");
         background-size: cover;
